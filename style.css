@@ -1,0 +1,35 @@
+/*!
+Theme Name: React Verse
+Theme URI: http://underscores.me/
+Author: Muhammad Muhsin
+Author URI: http://themes.redradar.net
+Description: A react-based theme.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: reactverse
+Tags: react, wp-api
+*/
+
+body {
+    background-color: #01304b;
+}
+
+.placeholder {
+    text-align: center;
+    margin-top: 40vh;
+}
+
+.placeholder p {
+    color: #91f2e5;
+    font-family: sans-serif;
+    font-size: 2em;
+}
+
+.screen-reader-text{
+    clip:rect(1px, 1px, 1px, 1px);
+    position:absolute !important;
+    height:1px;
+    width:1px;
+    overflow:hidden
+}

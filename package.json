@@ -15,8 +15,8 @@
   "license": "ISC",
   "scripts": {
     "test": "NODE_ENV=test NODE_PATH=test:components TEST_ROOT=js test/runner.js",
-    "build": "node_modules/.bin/webpack --config webpack.config.js",
-    "dev": "webpack --config webpack.config.js",
+    "build": "NODE_ENV=production webpack",
+    "dev": "webpack",
     "watch": "webpack --watch",
     "lint": "eslint js --ext=js,jsx",
     "zip": "node zip-theme.js"

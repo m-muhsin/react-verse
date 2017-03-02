@@ -7,8 +7,20 @@
  * @package ReactVerse
  */
 
+/**
+ * Check to ensure latest version
+ */
+if ( version_compare( $GLOBALS['wp_version'], '4.7', '<' ) ) {
+	require get_template_directory() . '/inc/compat-warnings.php';
+	return;
+}
+
 if ( ! defined( 'REACTVERSE_VERSION' ) ) {
 	define( 'REACTVERSE_VERSION', time() );
+}
+
+if ( ! defined( 'REACTVERSE_APP' ) ) {
+	define( 'REACTVERSE_APP', 'reactverse-app' );
 }
 
 if ( ! function_exists( 'reactverse_setup' ) ) :
@@ -20,6 +32,13 @@ if ( ! function_exists( 'reactverse_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function reactverse_setup() {
+	/*
+	 * Make theme available for translation.
+	 * Translations can be filed in the /languages/ directory.
+	 * If you're building a theme based on ReactVerse, use a find and replace
+	 * to change 'ReactVerse' to the name of your theme in all the template files.
+	 */
+	load_theme_textdomain( 'reactverse', get_template_directory() . '/languages' );
 	
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -56,18 +75,6 @@ function reactverse_setup() {
 		'caption',
 	) );
 
-	/*
-	 * Enable support for Post Formats.
-	 * See https://developer.wordpress.org/themes/functionality/post-formats/
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside',
-		'image',
-		'video',
-		'quote',
-		'link',
-	) );
-
 	add_post_type_support( 'post', 'comments' );
 	add_post_type_support( 'page', 'comments' );
 }
@@ -79,23 +86,39 @@ add_action( 'after_setup_theme', 'reactverse_setup' );
  */
 function reactverse_scripts() {
 	
-	wp_enqueue_style( 'reactverse-style', get_stylesheet_uri() );
-	
+	wp_enqueue_style( 'reactverse-style', get_template_directory_uri() . '/build/style.css', array(), REACTVERSE_VERSION );
+	wp_enqueue_script( REACTVERSE_APP, get_template_directory_uri() . '/build/app.js', array( 'jquery' ), REACTVERSE_VERSION, true );
+	if ( is_child_theme() ) {
+		wp_enqueue_style( 'reactverse-child-style', get_stylesheet_uri() );
+	}
+
 	$url = trailingslashit( home_url() );
 	$path = trailingslashit( parse_url( $url, PHP_URL_PATH ) );
 
-	wp_scripts()->add_data( 'reactverse-react', 'data', sprintf( 'var ReactVerseSettings = %s;', wp_json_encode( array(
-		'nonce' => wp_create_nonce( 'wp_rest' ),
-		// 'localStorageCache' => ! is_customize_preview(),
-		'user' => get_current_user_id(),
-		'title' => get_bloginfo( 'name', 'display' ),
-		'path' => $path,
-		'URL' => array(
-			'api' => esc_url_raw( get_rest_url( null, '/wp/v2' ) ),
-			'menuApi' => esc_url_raw( get_rest_url( null, '/wp-api-menus/v2' ) ),
-			'root' => esc_url_raw( $url ),
-		),
-	) ) ) );
+	$reactverse_settings = sprintf(
+		'var SiteSettings = %s; var ReactVerseSettings = %s;',
+		wp_json_encode( array(
+			'endpoint' => esc_url_raw( $url ),
+			'nonce' => wp_create_nonce( 'wp_rest' ),
+		) ),
+		wp_json_encode( array(
+			'user' => get_current_user_id(),
+			'userDisplay' => $user ? $user->display_name : '',
+			'frontPage' => array(
+				'page' => $front_page_slug,
+				'blog' => $blog_page_slug,
+			),
+			'URL' => array(
+				'base' => esc_url_raw( $url ),
+				'path' => $path,
+			),
+			'meta' => array(
+				'title' => get_bloginfo( 'name', 'display' ),
+				'description' => get_bloginfo( 'description', 'display' ),
+			),
+		) )
+	);
+	wp_add_inline_script( REACTVERSE_APP, $reactverse_settings, 'before' );
 }
 add_action( 'wp_enqueue_scripts', 'reactverse_scripts' );
 

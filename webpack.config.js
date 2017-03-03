@@ -11,7 +11,7 @@ webpackConfig = {
 	// Entry points point to the javascript module that is used to generate the script file.
 	// The key is used as the name of the script.
 	entry: {
-		'app': './js/index.jsx',
+		'app': './src/index.js',
 		// 'customize-preview': './js/customize-preview.js',
 	},
 	output: {

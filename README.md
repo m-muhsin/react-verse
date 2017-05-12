@@ -13,3 +13,6 @@ Clone the repo into the wordpress /themes folder. Then build the files.
 	cd react-verse
 	npm install
 	npm run build
+
+
+You need Node 6.x.x to run

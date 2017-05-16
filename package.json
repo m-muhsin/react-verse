@@ -15,7 +15,8 @@
   "license": "ISC",
   "scripts": {
     "dev": "webpack",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "prod": "webpack -p"
   },
   "dependencies": {
     "react": "^15.5.4",

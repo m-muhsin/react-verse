@@ -5,7 +5,7 @@ export class Hello extends Component {
 		return (
 			<div className="placeholder">
 				<p>This is a react component</p>
-				<p>Component based architecture</p>
+				<p>Using Webpack 2</p>
 			</div>
         );
     }

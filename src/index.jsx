@@ -4,9 +4,10 @@ import 'babel-polyfill';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { render } from 'react-dom';
+// import { Router, Route, Switch } from 'react-router'
 
 //Load components
-import {Hello} from './components/home';
+import {Hello} from './components/home/index';
 
 // Load the CSS
 require( '../sass/style.scss' );
@@ -14,7 +15,9 @@ require( '../sass/style.scss' );
 function renderApp() {
     ReactDOM.render(
         (
-            <Hello />
+            <Router>
+                <Route path="/" component={Hello} />
+            </Router>
         ),
         document.getElementById( 'main' )
     );

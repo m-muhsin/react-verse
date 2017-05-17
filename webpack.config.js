@@ -3,7 +3,7 @@ var path = require('path');
 
 module.exports = {
     entry: {
-        app: './src/index.js'
+        app: './src/index.jsx'
     },
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -20,13 +20,15 @@ module.exports = {
                 })
             },
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: 'babel-loader'
             }
         ]
     },
-
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
     plugins: [
         new ExtractTextPlugin({
             filename: "style.css",

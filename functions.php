@@ -77,6 +77,12 @@ function reactverse_setup() {
 
 	add_post_type_support( 'post', 'comments' );
 	add_post_type_support( 'page', 'comments' );
+
+	// This theme uses wp_nav_menu() in one location.
+	register_nav_menus( array(
+		'primary' => esc_html__( 'Primary Menu', 'reactverse' ),
+	) );
+
 }
 endif; // reactverse_setup
 add_action( 'after_setup_theme', 'reactverse_setup' );
@@ -90,6 +96,22 @@ function reactverse_scripts() {
 	wp_enqueue_script( REACTVERSE_APP, get_template_directory_uri() . '/build/app.js', array( 'jquery' ), REACTVERSE_VERSION, true );
 	if ( is_child_theme() ) {
 		wp_enqueue_style( 'reactverse-child-style', get_stylesheet_uri() );
+	}
+
+	$front_page_slug = false;
+	$blog_page_slug = false;
+	if ( 'posts' !== get_option( 'show_on_front' ) ) {
+		$front_page_id = get_option( 'page_on_front' );
+		$front_page = get_post( $front_page_id );
+		if ( $front_page->post_name ) {
+			$front_page_slug = $front_page->post_name;
+		}
+
+		$blog_page_id = get_option( 'page_for_posts' );
+		$blog_page = get_post( $blog_page_id );
+		if ( $blog_page->post_name ) {
+			$blog_page_slug = $blog_page->post_name;
+		}
 	}
 
 	$url = trailingslashit( home_url() );

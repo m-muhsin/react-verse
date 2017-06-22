@@ -196,3 +196,6 @@ function reactverse_fonts() {
 		wp_enqueue_style( 'reactverse-fonts', esc_url_raw( $fonts_url ), array(), null );
 }
 add_action( 'wp_enqueue_scripts', 'reactverse_fonts' );
+
+// Include extra functionality.
+require get_template_directory() . '/inc/load-menu.php';

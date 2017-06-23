@@ -1,7 +1,5 @@
 // Accessibility helpers
 
-import React from 'react';
-
 /**
  * Toggle a `focus` class on navigation items as they're tabbed through.
  *

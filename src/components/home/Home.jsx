@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export class Hello extends Component {
+export class Home extends Component {
     render() {
 		return (
 			<div className="placeholder">

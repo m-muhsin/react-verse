@@ -1,5 +1,5 @@
 // Load in the babel (es6) polyfill
-import 'babel-polyfill';
+// import 'babel-polyfill';
 
 import React, { Component } from 'react';
 import { render } from 'react-dom';
@@ -12,8 +12,9 @@ import { createReduxStore } from './appState.js';
 import { toggleFocus } from './utils/a11y';
 
 //Load components
-import { Hello } from './components/home';
+import { Home } from './components/home';
 import Navigation from './components/navigation';
+import NotFound from './components/notfound';
 
 // Load the CSS
 require('../sass/style.scss');
@@ -29,7 +30,8 @@ function renderApp() {
     render(
         (
             <Router history={history}>
-                <Route path={siteURL} component={Hello} />
+                <Route path={siteURL} component={Home} />
+                <Route path="*" component={ NotFound } />
             </Router>
         ),
         document.getElementById('main')

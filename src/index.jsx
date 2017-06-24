@@ -12,7 +12,7 @@ import { createReduxStore } from './appState.js';
 import { toggleFocus } from './utils/a11y';
 
 //Load components
-import { Home } from './components/home';
+import Home from './components/home';
 import Navigation from './components/navigation';
 import NotFound from './components/notfound';
 

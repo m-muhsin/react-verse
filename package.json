@@ -19,11 +19,16 @@
     "prod": "webpack -p"
   },
   "dependencies": {
+    "find": "^0.2.7",
+    "moment": "^2.18.1",
     "react": "^15.5.4",
     "react-body-class": "git+https://github.com/ryelle/react-body-class.git",
     "react-document-meta": "^2.0.3",
     "react-dom": "^15.5.4",
-    "react-router": "^3.0.5"
+    "react-router": "^3.0.5",
+    "react-router-scroll": "^0.4.2",
+    "wordpress-query-menu": "^1.1.0",
+    "wordpress-query-posts": "^1.1.2"
   },
   "devDependencies": {
     "babel": "^6.23.0",

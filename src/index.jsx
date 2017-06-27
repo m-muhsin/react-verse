@@ -6,10 +6,11 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory, applyRouterMiddleware } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
+import { useScroll } from 'react-router-scroll';
 import { createReduxStore } from './appState.js';
 
 // Accessibility!
-import { toggleFocus } from './utils/a11y';
+import { keyboardFocusReset, toggleFocus } from './utils/a11y';
 
 //Load components
 import Home from './components/home';
@@ -26,13 +27,20 @@ const path = ReactVerseSettings.URL.path || '/';
 
 function renderApp() {
     let siteURL = ReactVerseSettings.URL.path;
+    // Add the event Jetpack listens for to initialize various JS features on posts.
+    const emitJetpackEvent = () => {
+        jQuery(document.body).trigger('post-load');
+    }
+    const routerMiddleware = applyRouterMiddleware(useScroll(shouldUpdateScroll), keyboardFocusReset('main'));
 
     render(
         (
-            <Router history={history}>
-                <Route path={siteURL} component={Home} />
-                <Route path="*" component={ NotFound } />
-            </Router>
+            <Provider store={store}>
+                <Router history={history} render={routerMiddleware} onUpdate={emitJetpackEvent}>
+                    <Route path={siteURL} component={Home} />
+                    <Route path="*" component={ NotFound } />
+                </Router>
+            </Provider>
         ),
         document.getElementById('main')
     );
@@ -51,6 +59,14 @@ function renderApp() {
         // Run this to initialize the focus JS for PHP-generated menus
         initNoApiMenuFocus();
     }
+}
+
+// Callback for `useScroll`, which skips the auto-scrolling on skiplinks
+function shouldUpdateScroll(prevRouterProps, { location }) {
+    if (location.hash) {
+        return false;
+    }
+    return true;
 }
 
 // Initialize keyboard functionality with JS for non-react-build Menus (if the API doesn't exist)

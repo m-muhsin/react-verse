@@ -1,0 +1,19 @@
+/*--------------------------------------------------------------
+    Footer
+--------------------------------------------------------------*/
+.site-footer {
+	margin: 0;
+	padding: 0 0 50px;
+
+	a {
+		&:hover,
+		&:active,
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+
+	@include breakpoint( '>660px' ) {
+		@include sidebar-margin;
+	}
+}

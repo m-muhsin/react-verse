@@ -1,0 +1,81 @@
+/*--------------------------------------------------------------
+    Widgets
+--------------------------------------------------------------*/
+
+.sidebar-widgets {
+	margin-bottom: 50px;
+	padding-top: 75px;
+	max-width: 100%;
+	border-top: 1px solid $color__border;
+
+	.home &,
+	.archive & {
+		border-top: none;
+	}
+
+	@include breakpoint( '>660px' ) {
+		@include sidebar-margin;
+	}
+
+	@include breakpoint( '>480px' ) {
+		.widget {
+			float: left;
+			width: 50%;
+			margin-bottom: 40px;
+
+			&:nth-of-type( odd ) {
+				clear: left;
+				padding-right: 20px;
+			}
+			&:nth-of-type( even ) {
+				padding-left: 20px;
+			}
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+
+			&:nth-of-type( odd ):last-of-type {
+				float: none;
+				clear: both;
+				width: 100%;
+			}
+		}
+	}
+
+	@include breakpoint( '<480px' ) {
+		.widget {
+			margin-bottom: 40px;
+		}
+	}
+}
+
+.widget {
+	ul {
+		margin: 0;
+	}
+}
+
+.widget_calendar {
+	caption, th {
+		padding-bottom: 10px;
+	}
+
+	table {
+		text-align: center;
+	}
+
+	tbody {
+		a {
+			margin-left: -8px;
+			margin-right: -8px;
+			padding-left: 8px;
+			padding-right: 8px;
+			padding-bottom: 4px;
+		}
+	}
+
+	tfoot td {
+		padding-top: 10px;
+	}
+}

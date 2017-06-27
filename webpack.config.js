@@ -3,7 +3,7 @@ var path = require('path');
 
 module.exports = {
     entry: {
-        app: './src/index.jsx'
+        app: './js/index.jsx'
     },
     output: {
         path: path.resolve(__dirname, 'build'),

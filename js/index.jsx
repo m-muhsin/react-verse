@@ -13,7 +13,7 @@ import { createReduxStore } from './appState.js';
 import { keyboardFocusReset, toggleFocus } from './utils/a11y';
 
 //Load components
-import Home from './components/home';
+import Index from './components/posts';
 import Navigation from './components/navigation';
 import NotFound from './components/notfound';
 
@@ -37,7 +37,7 @@ function renderApp() {
         (
             <Provider store={store}>
                 <Router history={history} render={routerMiddleware} onUpdate={emitJetpackEvent}>
-                    <Route path={siteURL} component={Home} />
+                    <Route path={siteURL} component={Index} />
                     <Route path="*" component={ NotFound } />
                 </Router>
             </Provider>

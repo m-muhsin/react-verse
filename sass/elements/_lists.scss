@@ -1,0 +1,33 @@
+ul, ol {
+	margin: 0 0 1.5em 0;
+
+	@include breakpoint( '>480px' ) {
+		margin: 0 0 1.5em 1em;
+	}
+
+	@include breakpoint( '>960px' ) {
+		margin: 0 0 1.5em 2em;
+	}
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1em;
+}
+
+dt {
+	font-weight: $font__weight-bold;
+}
+
+dd {
+	margin: 0 1em 1.5em;
+}

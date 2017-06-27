@@ -1,0 +1,30 @@
+/*--------------------------------------------------------------
+   Site structure
+--------------------------------------------------------------*/
+.site {
+	margin: 0 auto;
+	padding: 0 15px;
+	max-width: $size__site-container;
+
+	@include breakpoint( '<660px' ) {
+		padding: 0 25px;
+	}
+}
+
+// For this element (only!), we hide the focus state.
+.site-main:focus {
+	outline: none;
+}
+
+// Hide Jetpack's sharing/like buttons on the blog
+.sharedaddy {
+	display: none !important;
+
+	body.single & {
+		display: block !important;
+	}
+
+	.sd-sharing {
+		padding-left: 2px;
+	}
+}

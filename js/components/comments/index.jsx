@@ -11,9 +11,9 @@ import { isRequestingCommentsForPost, getCommentsForPost, getTotalCommentsForPos
 // import CommentPagination from '../pagination/comments';
 import Comment from './single';
 import CommentForm from './form';
-import Placeholder from 'components/placeholder';
+import Placeholder from '../placeholder';
 
-const Comments = React.createClass( {
+class Comments extends React.Component {
 	renderForm() {
 		return (
 			<div className="comment-respond">
@@ -22,7 +22,7 @@ const Comments = React.createClass( {
 				<CommentForm postId={ this.props.postId } />
 			</div>
 		);
-	},
+	}
 
 	render() {
 		// If this is a protected post, we don't want to display comments.
@@ -69,7 +69,7 @@ const Comments = React.createClass( {
 			</div>
 		);
 	}
-} );
+}
 
 export default connect( ( state, ownProps ) => {
 	const postId = ownProps.postId;

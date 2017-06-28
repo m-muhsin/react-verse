@@ -3,11 +3,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // Internal dependencies
-import ContentMixin from 'utils/content-mixin';
+import ContentMixin from '../../utils/content-mixin';
 import { getComment } from 'wordpress-query-comments/lib/selectors';
 
-const Comment = React.createClass( {
-	mixins: [ ContentMixin ],
+class Comment extends React.Component {
+	mixins: [ ContentMixin ]
 
 	render() {
 		const comment = this.props.comment;
@@ -54,7 +54,7 @@ const Comment = React.createClass( {
 			</li>
 		);
 	}
-} );
+}
 
 export default connect( ( state, ownProps ) => {
 	const commentParent = ownProps.comment.parent || false;

@@ -15,8 +15,8 @@ import ContentMixin from '../../utils/content-mixin';
 import PostMeta from './meta';
 import Media from './image';
 
-const SinglePost = React.createClass( {
-	mixins: [ ContentMixin ],
+class SinglePost extends React.Component {
+	mixins: [ ContentMixin ]
 
 	renderArticle() {
 		const post = this.props.post;
@@ -40,7 +40,7 @@ const SinglePost = React.createClass( {
 			<article id={ `post-${ post.id }` } className={ classes }>
 				<DocumentMeta { ...meta } />
 				<BodyClass classes={ [ 'single', 'single-post' ] } />
-				<h1 className="entry-title" dangerouslySetInnerHTML={ this.getTitle( post ) } />
+				<h1 className="entry-title" dangerouslySetInnerHTML={{ _html: 'this.getTitle( post )' }} />
 				{ featuredMedia ?
 					<Media media={ featuredMedia } parentClass='entry-image' /> :
 					null
@@ -51,7 +51,7 @@ const SinglePost = React.createClass( {
 				{ 'post' === post.type && <PostMeta post={ post } humanDate={ this.getDate( post ) } /> }
 			</article>
 		);
-	},
+	}
 
 	render() {
 		return (
@@ -60,7 +60,7 @@ const SinglePost = React.createClass( {
 			</div>
 		);
 	}
-} );
+}
 
 export default connect( ( state, ownProps ) => {
 	const postId = parseInt( ownProps.id, 10 );

@@ -16,7 +16,7 @@ import PostPreview from '../post/preview';
 import Pagination from '../pagination/archive';
 import Placeholder from '../placeholder';
 
-const Index = React.createClass({
+class Index extends React.Component {
 	render() {
 		if (!!this.props.previewId) {
 			return (
@@ -49,7 +49,7 @@ const Index = React.createClass({
 			</div>
 		);
 	}
-});
+}
 
 export default connect((state, ownProps) => {
 	let query = {};

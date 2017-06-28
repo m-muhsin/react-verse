@@ -15,7 +15,7 @@ import PostList from '../posts/list';
 import Pagination from '../pagination/archive';
 import Placeholder from '../placeholder';
 
-const DateArchive = React.createClass( {
+class DateArchive extends React.Component {
 	render() {
 		const { query, loading, path, page, totalPages, dateString, posts } = this.props;
 		const meta = {
@@ -43,7 +43,7 @@ const DateArchive = React.createClass( {
 			</div>
 		);
 	}
-} );
+}
 
 export default connect( ( state, ownProps ) => {
 	let path = FoxhoundSettings.URL.path || '/';

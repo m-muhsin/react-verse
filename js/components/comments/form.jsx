@@ -7,14 +7,14 @@ import { bindActionCreators } from 'redux';
 import { isSubmittingCommentOnPost } from 'wordpress-query-comments/lib/selectors';
 import { submitComment } from 'wordpress-query-comments/lib/state';
 
-const CommentForm = React.createClass( {
+class CommentForm extends React.Component {
 
 	getInitialState() {
 		return {
 			message: false,
 			error: false,
 		};
-	},
+	}
 
 	componentDidUpdate() {
 		if ( ! this.state.message ) {
@@ -24,7 +24,7 @@ const CommentForm = React.createClass( {
 		// Speak the message status for screen readers
 		const messagePrefix = this.state.error ? 'Error: ' : 'Success: '
 		wp.a11y.speak( messagePrefix + this.state.message, 'assertive' );
-	},
+	}
 
 	onSubmit( event ) {
 		event.preventDefault();
@@ -75,7 +75,7 @@ const CommentForm = React.createClass( {
 				this.setState( { message: false, error: false } );
 			}, 5000 );
 		} );
-	},
+	}
 
 	getErrorMessage( code ) {
 		switch ( code ) {
@@ -86,7 +86,7 @@ const CommentForm = React.createClass( {
 			default:
 				return 'Something went wrong when posting your comment, please try again.';
 		}
-	},
+	}
 
 	renderAnonFields() {
 		const fields = [];
@@ -118,7 +118,7 @@ const CommentForm = React.createClass( {
 		);
 
 		return fields;
-	},
+	}
 
 	renderLoggedInNotice() {
 		return (
@@ -126,7 +126,7 @@ const CommentForm = React.createClass( {
 				<span id="email-notes">Logged in as { FoxhoundSettings.userDisplay }.</span>
 			</p>
 		);
-	},
+	}
 
 	renderResponseMessage() {
 		if ( ! this.state.message || ! this.state.error ) {
@@ -138,7 +138,7 @@ const CommentForm = React.createClass( {
 				{ this.state.message }
 			</p>
 		);
-	},
+	}
 
 	render() {
 		return (
@@ -161,7 +161,7 @@ const CommentForm = React.createClass( {
 			</form>
 		);
 	}
-} );
+}
 
 export default connect(
 	( state, ownProps ) => ( {

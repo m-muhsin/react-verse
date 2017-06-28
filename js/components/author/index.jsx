@@ -8,7 +8,7 @@ import he from 'he';
 // Internal dependencies
 import QueryUser from 'wordpress-query-user';
 import { isRequestingUser, getUserIdFromName, getUser } from 'wordpress-query-user/lib/selectors';
-import Placeholder from 'components/placeholder';
+import Placeholder from '../placeholder';
 import List from './list';
 
 const AuthorHeader = ( { userName, loading, user = {}, query = {} } ) => {

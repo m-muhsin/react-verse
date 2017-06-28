@@ -11,11 +11,11 @@ import QueryPosts from 'wordpress-query-posts';
 import { isRequestingPostsForQuery, getPostsForQuery, getTotalPagesForQuery } from 'wordpress-query-posts/lib/selectors';
 
 // Components
-import PostList from 'components/posts/list';
+import PostList from '../posts/list';
 import SearchForm from './form';
-import Placeholder from 'components/placeholder';
+import Placeholder from '../placeholder';
 
-const Search = React.createClass( {
+class Search extends React.Component {
 	search( event ) {
 		event.preventDefault();
 		const url = `${ FoxhoundSettings.URL.path }search/${ this.getSearchValue() }`;

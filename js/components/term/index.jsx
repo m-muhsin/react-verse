@@ -8,7 +8,7 @@ import he from 'he';
 // Internal dependencies
 import QueryTerm from 'wordpress-query-term';
 import { isRequestingTerm, getTermIdFromSlug, getTerm } from 'wordpress-query-term/lib/selectors';
-import Placeholder from 'components/placeholder';
+import Placeholder from '../placeholder';
 import List from './list';
 
 const TermHeader = ( { term, taxonomy, loading, termData = {}, query = {} } ) => {

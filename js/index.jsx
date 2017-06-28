@@ -15,6 +15,8 @@ import { keyboardFocusReset, toggleFocus } from './utils/a11y';
 //Load components
 import Index from './components/posts';
 import Navigation from './components/navigation';
+import SinglePost from './components/post';
+import SinglePage from './components/post/page';
 import NotFound from './components/notfound';
 
 // Load the CSS
@@ -38,6 +40,8 @@ function renderApp() {
             <Provider store={store}>
                 <Router history={history} render={routerMiddleware} onUpdate={emitJetpackEvent}>
                     <Route path={siteURL} component={Index} />
+                    <Route path={ `${ path }page/**` } component={ SinglePage } />
+                    <Route path={ `${ path }:year/:month/:slug` } component={ SinglePost } />
                     <Route path="*" component={ NotFound } />
                 </Router>
             </Provider>

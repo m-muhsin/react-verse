@@ -2,25 +2,25 @@
 import React from 'react';
 const noop = () => {};
 
-class Pagination extends React.Component {
+let Pagination = React.createClass( {
 	propTypes: {
 		start: React.PropTypes.number,
 		current: React.PropTypes.number,
 		end: React.PropTypes.number,
 		onNextPage: React.PropTypes.func,
 		onPreviousPage: React.PropTypes.func,
-	}
+	},
 
-	static get defaultProps() {
-			return {
+	getDefaultProps: function() {
+		return {
 			start: 1,
 			current: 1,
 			onNextPage: noop,
 			onPreviousPage: noop
 		};
-	}
+	},
 
-	render() {
+	render: function() {
 		let next = this.props.current + 1;
 		let prev = this.props.current - 1;
 
@@ -43,6 +43,6 @@ class Pagination extends React.Component {
 			</nav>
 		);
 	}
-}
+} );
 
 export default Pagination;

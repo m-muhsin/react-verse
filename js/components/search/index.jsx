@@ -15,7 +15,7 @@ import PostList from '../posts/list';
 import SearchForm from './form';
 import Placeholder from '../placeholder';
 
-class Search extends React.Component {
+const Search = React.createClass( {
 	search( event ) {
 		event.preventDefault();
 		const url = `${ FoxhoundSettings.URL.path }search/${ this.getSearchValue() }`;

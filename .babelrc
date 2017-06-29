@@ -1,6 +1,22 @@
 {
-    "presets": [
-        "es2015", 
-        "react"
-    ]
+	"presets": [
+		"es2015",
+		"stage-0"
+	],
+	"plugins": [
+		"transform-class-properties",
+		"transform-export-extensions",
+		"add-module-exports",
+		"syntax-jsx",
+		"transform-react-jsx",
+		"transform-react-display-name",
+		"lodash"
+	],
+	"env": {
+		"test": {
+			"plugins": [
+				[ "babel-plugin-webpack-alias", { "config": "./webpack.config.js" } ]
+			]
+		}
+	}
 }

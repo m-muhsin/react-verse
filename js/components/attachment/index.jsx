@@ -8,13 +8,13 @@ import he from 'he';
 
 // Internal dependencies
 import Placeholder from '../placeholder';
-import PostMeta from 'components/post/meta';
+import PostMeta from '../post/meta';
 import QueryMedia from 'wordpress-query-media';
 import { getMedia, isRequestingMedia } from 'wordpress-query-media/lib/selectors';
 import ContentMixin from '../../utils/content-mixin';
 
-class Attachment extends React.Component {
-	mixins: [ ContentMixin ]
+const Attachment = React.createClass( {
+	mixins: [ ContentMixin ],
 
 	renderMedia() {
 		const media = this.props.media;
@@ -33,7 +33,7 @@ class Attachment extends React.Component {
 			<article className={ classNames( [ 'entry' ] ) }>
 				<DocumentMeta { ...meta } />
 				<BodyClass classes={ [ 'attachment', `attachment-${ media.media_type }`, 'single', 'single-attachment' ] } />
-				<h1 className="entry-title" dangerouslySetInnerHTML={ { _html: 'this.getTitle( post )' } } />
+				<h1 className="entry-title" dangerouslySetInnerHTML={ this.getTitle( media ) } />
 
 				<div className="entry-meta"></div>
 				<div className="entry-content" dangerouslySetInnerHTML={ this.getMediaContent( media ) } />
@@ -41,7 +41,7 @@ class Attachment extends React.Component {
 				<PostMeta post={ media } humanDate={ this.getDate( media ) } />
 			</article>
 		);
-	}
+	},
 
 	render() {
 		return (
@@ -54,7 +54,7 @@ class Attachment extends React.Component {
 			</div>
 		);
 	}
-}
+} );
 
 export default connect( ( state, ownProps ) => {
 	const id = parseInt( ownProps.params.id || 0 );

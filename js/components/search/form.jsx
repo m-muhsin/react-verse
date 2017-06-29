@@ -1,10 +1,10 @@
 // External dependencies
 import React from 'react';
 
-class SearchForm extends React.Component {
+const SearchForm = React.createClass( {
 	getValue() {
 		return this.refs.input.value;
-	}
+	},
 
 	render() {
 		return (
@@ -17,6 +17,6 @@ class SearchForm extends React.Component {
 			</form>
 		);
 	}
-}
+} );
 
 export default SearchForm;

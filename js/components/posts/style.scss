@@ -1,9 +1,52 @@
-.placeholder {
-    text-align: center;
+
+/*--------------------------------------------------------------
+   Lists of posts
+--------------------------------------------------------------*/
+.entry {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: flex-start;
+	margin-bottom: 80px;
 }
 
-.placeholder p {
-    color: #010101;
-    font-family: sans-serif;
-    font-size: 2em;
+.entry-title {
+	flex: 1 100%;
+	max-width: 100%;
+	order: 1;
+
+	@include breakpoint( '>660px' ) {
+		@include sidebar-padding;
+		order: 1;
+	}
+}
+
+.entry-meta {
+	flex: 1 100%;
+	width: 100%;
+	order: 3;
+
+	@include breakpoint( '>660px' ) {
+		flex: 1 $size__site-sidebar;
+		-ms-flex: 1 $size__site-sidebar-fallback;
+		order: 2;
+		width: $size__site-sidebar;
+		margin-top: 8px;
+		margin-right: $size__site-gutter;
+		text-align: right;
+	}
+}
+
+.entry-meta-label {
+	margin-bottom: 5px;
+}
+
+.entry-content {
+	flex: 1 $size__site-content;
+	order: 2;
+	overflow: hidden;
+
+	@include breakpoint( '>660px' ) {
+		order: 3;
+		max-width: $size__site-content;
+	}
 }

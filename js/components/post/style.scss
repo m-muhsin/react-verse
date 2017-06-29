@@ -1,0 +1,59 @@
+/*--------------------------------------------------------------
+    Single Posts & Pages
+--------------------------------------------------------------*/
+
+.single,
+body.page {
+	.entry-content > p:first-of-type {
+		@include font-size( 22 );
+
+		@include breakpoint( '>480px' ) {
+			@include font-size( 24 );
+		}
+	}
+
+	.entry-title,
+	.entry-image,
+	.entry-meta,
+	.entry-content,
+	footer.entry-meta {
+		order: 0;
+		order: unset;
+	}
+
+	.entry-image {
+		margin-bottom: 24px;
+		width: 100%;
+		background-color: $color__background-image;
+		text-align: center;
+	}
+}
+
+.single-post {
+	.entry {
+		margin-bottom: 0;
+	}
+}
+
+footer.entry-meta {
+	flex: 1 100%;
+	margin-top: 25px;
+	margin-bottom: 50px;
+	text-align: center;
+
+	.entry-meta-item:nth-of-type( n + 2 ) {
+		margin-top: 15px;
+	}
+
+	a:after {
+		content: ', ';
+	}
+
+	a:last-of-type:after {
+		content: '';
+	}
+
+	@include breakpoint( '>660px' ) {
+		@include sidebar-margin;
+	}
+}

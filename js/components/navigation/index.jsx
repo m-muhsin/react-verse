@@ -1,4 +1,4 @@
-/*global ReactVerseSettings */
+/*global FoxhoundSettings */
 // External dependencies
 import React from 'react';
 import { connect } from 'react-redux';
@@ -54,18 +54,18 @@ const MenuItem = ( { item, onClick, isSelected = false } ) => {
 	);
 }
 
-class Navigation extends React.Component {
+const Navigation = React.createClass( {
 	getInitialState() {
 		return {
 			isMenuOpen: false,
 			selected: this.props.currentPage,
 		}
-	}
+	},
 
 	toggleMenu( event ) {
 		event.preventDefault();
 		this.setState( { isMenuOpen: ! this.state.isMenuOpen } );
-	}
+	},
 
 	render() {
 		if ( this.props.menu.length < 1 ) {
@@ -97,10 +97,10 @@ class Navigation extends React.Component {
 			</div>
 		);
 	}
-}
+} );
 
 export default connect( ( state ) => {
-	const path = ReactVerseSettings.URL.path || '/';
+	const path = FoxhoundSettings.URL.path || '/';
 	const menu = getMenu( state, 'primary' );
 	return {
 		currentPage: state.routing.locationBeforeTransitions.pathname || path,

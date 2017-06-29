@@ -6,8 +6,8 @@ import { connect } from 'react-redux';
 import ContentMixin from '../../utils/content-mixin';
 import { getComment } from 'wordpress-query-comments/lib/selectors';
 
-class Comment extends React.Component {
-	mixins: [ ContentMixin ]
+const Comment = React.createClass( {
+	mixins: [ ContentMixin ],
 
 	render() {
 		const comment = this.props.comment;
@@ -54,7 +54,7 @@ class Comment extends React.Component {
 			</li>
 		);
 	}
-}
+} );
 
 export default connect( ( state, ownProps ) => {
 	const commentParent = ownProps.comment.parent || false;

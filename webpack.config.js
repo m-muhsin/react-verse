@@ -3,8 +3,9 @@ var path = require('path');
 
 module.exports = {
     entry: {
-        app: './js/index.jsx'
-    },
+		'app': './js/index.jsx',
+		'customize-preview': './js/customize-preview.js',
+	},
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: '[name].js'

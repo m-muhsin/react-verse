@@ -1,13 +1,13 @@
 // External dependencies
 import React from 'react';
 
-class Media extends React.Component {
+let Media = React.createClass( {
 	propTypes: {
 		media: React.PropTypes.object.isRequired,
 		parentClass: React.PropTypes.string,
-	}
+	},
 
-	render() {
+	render: function() {
 		const media = this.props.media;
 
 		let mediaElement;
@@ -25,6 +25,6 @@ class Media extends React.Component {
 			</div>
 		);
 	}
-}
+} );
 
 export default Media;

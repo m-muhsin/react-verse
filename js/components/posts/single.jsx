@@ -1,4 +1,4 @@
-/*global ReactVerseSettings */
+/*global FoxhoundSettings */
 // External dependencies
 import React from 'react';
 import classNames from 'classnames';
@@ -21,7 +21,7 @@ let Post = React.createClass( {
 			entry: true
 		} );
 
-		let path = post.link.replace( ReactVerseSettings.URL.base, ReactVerseSettings.URL.path );
+		let path = post.link.replace( FoxhoundSettings.URL.base, FoxhoundSettings.URL.path );
 
 		return (
 			<article id={ `post-${post.id}` } className={ classes }>

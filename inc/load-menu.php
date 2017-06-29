@@ -2,13 +2,13 @@
 /**
  * Pre-load the navigation menu as a JSON object
  *
- * @package ReactVerse
+ * @package Foxhound
  */
 
 /**
  * Class wrapper for menu loading
  */
-class ReactVerse_LoadMenu {
+class Foxhound_LoadMenu {
 	/**
 	 * Set up actions
 	 */
@@ -21,10 +21,10 @@ class ReactVerse_LoadMenu {
 	 */
 	public function print_data() {
 		$menu_data = sprintf(
-			'var ReactVerseMenu = %s;',
+			'var FoxhoundMenu = %s;',
 			$this->add_json_data()
 		);
-		wp_add_inline_script( REACTVERSE_APP, $menu_data, 'before' );
+		wp_add_inline_script( FOXHOUND_APP, $menu_data, 'before' );
 	}
 
 	/**
@@ -57,4 +57,4 @@ class ReactVerse_LoadMenu {
 		return $menu;
 	}
 }
-new ReactVerse_LoadMenu();
+new Foxhound_LoadMenu();

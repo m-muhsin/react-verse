@@ -23,7 +23,7 @@ const Attachment = React.createClass( {
 		}
 
 		const meta = {
-			title: media.title.rendered + ' – ' + FoxhoundSettings.meta.title,
+			title: media.title.rendered + ' – ' + ReactVerseSettings.meta.title,
 			description: media.caption.rendered,
 			canonical: media.link,
 		};

@@ -41,7 +41,7 @@ class Term extends Component {
 
 export default connect( ( state, ownProps ) => {
 	const { query, taxonomy, term } = ownProps;
-	let path = FoxhoundSettings.URL.path || '/';
+	let path = ReactVerseSettings.URL.path || '/';
 	path += ( 'category' === taxonomy ) ? `category/${ term }/` : `tag/${ term }/`;
 
 	// Needs to be below query setup

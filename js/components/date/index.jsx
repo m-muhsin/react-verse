@@ -19,7 +19,7 @@ const DateArchive = React.createClass( {
 	render() {
 		const { query, loading, path, page, totalPages, dateString, posts } = this.props;
 		const meta = {
-			title: dateString + ' – ' + he.decode( FoxhoundSettings.meta.title ),
+			title: dateString + ' – ' + he.decode( ReactVerseSettings.meta.title ),
 		};
 
 		return (
@@ -46,7 +46,7 @@ const DateArchive = React.createClass( {
 } );
 
 export default connect( ( state, ownProps ) => {
-	let path = FoxhoundSettings.URL.path || '/';
+	let path = ReactVerseSettings.URL.path || '/';
 	path += 'date/';
 	[ 'year', 'month', 'day' ].map( ( key ) => {
 		if ( ownProps.params.hasOwnProperty( key ) ) {

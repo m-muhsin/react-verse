@@ -13,7 +13,7 @@ import List from './list';
 
 const AuthorHeader = ( { userName, loading, user = {}, query = {} } ) => {
 	const meta = {
-		title: user.name + ' – ' + FoxhoundSettings.meta.title,
+		title: user.name + ' – ' + ReactVerseSettings.meta.title,
 	};
 	meta.title = he.decode( meta.title );
 

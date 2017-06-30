@@ -21,7 +21,7 @@ let Post = React.createClass( {
 			entry: true
 		} );
 
-		let path = post.link.replace( FoxhoundSettings.URL.base, FoxhoundSettings.URL.path );
+		let path = post.link.replace( ReactVerseSettings.URL.base, ReactVerseSettings.URL.path );
 
 		return (
 			<article id={ `post-${post.id}` } className={ classes }>

@@ -41,7 +41,7 @@ class AuthorArchive extends Component {
 
 export default connect( ( state, ownProps ) => {
 	const { query, author } = ownProps;
-	let path = FoxhoundSettings.URL.path || '/';
+	let path = ReactVerseSettings.URL.path || '/';
 	path += `author/${ author }/`;
 
 	// Needs to be below query setup

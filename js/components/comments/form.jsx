@@ -101,7 +101,7 @@ const CommentForm = React.createClass( {
 				<div className="comment-form-field comment-form-author">
 					<label htmlFor="author">Name</label>
 					<input id="author" name="author" type="text" aria-required="true" required="required" />
-					<input id="author_id" name="author_id" type="hidden" value={ FoxhoundSettings.user } />
+					<input id="author_id" name="author_id" type="hidden" value={ ReactVerseSettings.user } />
 				</div>
 				<div className="comment-form-field comment-form-email">
 					<label htmlFor="email">Email</label>
@@ -123,7 +123,7 @@ const CommentForm = React.createClass( {
 	renderLoggedInNotice() {
 		return (
 			<p className="comment-form-notes">
-				<span id="email-notes">Logged in as { FoxhoundSettings.userDisplay }.</span>
+				<span id="email-notes">Logged in as { ReactVerseSettings.userDisplay }.</span>
 			</p>
 		);
 	},
@@ -143,7 +143,7 @@ const CommentForm = React.createClass( {
 	render() {
 		return (
 			<form onSubmit={ this.onSubmit }>
-				{ FoxhoundSettings.user === 0 ? this.renderAnonFields() : this.renderLoggedInNotice() }
+				{ ReactVerseSettings.user === 0 ? this.renderAnonFields() : this.renderLoggedInNotice() }
 
 				<div aria-hidden="true">
 					{ this.renderResponseMessage() }

@@ -27,9 +27,9 @@ const Index = React.createClass( {
 
 		const posts = this.props.posts;
 		const meta = {
-			title: he.decode( FoxhoundSettings.meta.title ),
-			description: FoxhoundSettings.meta.description,
-			canonical: FoxhoundSettings.URL.base,
+			title: he.decode( ReactVerseSettings.meta.title ),
+			description: ReactVerseSettings.meta.description,
+			canonical: ReactVerseSettings.URL.base,
 		};
 
 		return (
@@ -57,9 +57,9 @@ export default connect( ( state, ownProps ) => {
 	query.sticky = false;
 	query.page = ownProps.params.paged || 1;
 
-	let path = FoxhoundSettings.URL.path || '/';
-	if ( FoxhoundSettings.frontPage.page ) {
-		path += 'page/' + FoxhoundSettings.frontPage.blog + '/';
+	let path = ReactVerseSettings.URL.path || '/';
+	if ( ReactVerseSettings.frontPage.page ) {
+		path += 'page/' + ReactVerseSettings.frontPage.blog + '/';
 	}
 
 	const posts = getPostsForQuery( state, query ) || [];

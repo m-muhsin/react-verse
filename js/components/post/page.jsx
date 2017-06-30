@@ -27,7 +27,7 @@ const SinglePage = React.createClass( {
 		}
 
 		const meta = {
-			title: post.title.rendered + ' – ' + FoxhoundSettings.meta.title,
+			title: post.title.rendered + ' – ' + ReactVerseSettings.meta.title,
 			description: post.excerpt.rendered,
 			canonical: post.link,
 		};

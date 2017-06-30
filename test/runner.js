@@ -99,7 +99,7 @@ global.SiteSettings = {
 	endpoint: 'http://trunk.wordpress.dev/',
 	nonce: 'nonce'
 };
-global.FoxhoundSettings = {
+global.ReactVerseSettings = {
 	user: 1,
 	userDisplay: 'admin',
 	frontPage: {

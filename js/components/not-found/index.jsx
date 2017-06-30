@@ -13,7 +13,7 @@ const NotFound = React.createClass( {
 		} );
 
 		const meta = {
-			title: 'Page not found – ' + he.decode( FoxhoundSettings.meta.title ),
+			title: 'Page not found – ' + he.decode( ReactVerseSettings.meta.title ),
 		};
 
 		return (

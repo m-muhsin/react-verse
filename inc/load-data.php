@@ -33,10 +33,10 @@ class Foxhound_LoadData {
 	 */
 	public function print_data() {
 		$menu_data = sprintf(
-			'var FoxhoundData = %s;',
+			'var ReactVerseData = %s;',
 			$this->add_json_data()
 		);
-		wp_add_inline_script( FOXHOUND_APP, $menu_data, 'before' );
+		wp_add_inline_script( REACTVERSE_APP, $menu_data, 'before' );
 	}
 
 	/**

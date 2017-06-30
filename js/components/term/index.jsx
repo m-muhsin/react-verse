@@ -13,7 +13,7 @@ import List from './list';
 
 const TermHeader = ( { term, taxonomy, loading, termData = {}, query = {} } ) => {
 	const meta = {
-		title: termData.name + ' – ' + FoxhoundSettings.meta.title,
+		title: termData.name + ' – ' + ReactVerseSettings.meta.title,
 		description: termData.description,
 	};
 	meta.title = he.decode( meta.title );

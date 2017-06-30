@@ -37,13 +37,13 @@ import { keyboardFocusReset, skipLink, toggleFocus } from './utils/a11y';
 // Now the work starts.
 const store = createReduxStore();
 const history = syncHistoryWithStore( browserHistory, store );
-const path = FoxhoundSettings.URL.path || '/';
+const path = ReactVerseSettings.URL.path || '/';
 
 function renderApp() {
 	let blogURL, frontPageRoute;
-	if ( FoxhoundSettings.frontPage.page ) {
-		blogURL = path + 'page/' + FoxhoundSettings.frontPage.blog + '/';
-		frontPageRoute = <Route path={ path } slug={ FoxhoundSettings.frontPage.page } component={ SinglePage } />;
+	if ( ReactVerseSettings.frontPage.page ) {
+		blogURL = path + 'page/' + ReactVerseSettings.frontPage.blog + '/';
+		frontPageRoute = <Route path={ path } slug={ ReactVerseSettings.frontPage.page } component={ SinglePage } />;
 	} else {
 		blogURL = path;
 		frontPageRoute = null;
@@ -91,7 +91,7 @@ function renderApp() {
 		document.getElementById( 'main' )
 	);
 
-	if ( FoxhoundMenu.enabled ) {
+	if ( ReactVerseMenu.enabled ) {
 		render(
 			(
 				<Provider store={ store }>
@@ -152,7 +152,7 @@ function initNoApiMenuFocus() {
 // Set up link capture on all links in the app context.
 function handleLinkClick() {
 	// This regex matches any string with the wp site's URL in it, but we want to trim the trailing slash
-	let regexBaseUrl = FoxhoundSettings.URL.base;
+	let regexBaseUrl = ReactVerseSettings.URL.base;
 	if ( '/' === regexBaseUrl[ regexBaseUrl.length - 1 ] ) {
 		regexBaseUrl = regexBaseUrl.slice( 0, regexBaseUrl.length - 1 );
 	}
@@ -181,7 +181,7 @@ function handleLinkClick() {
 		event.preventDefault();
 		let url = event.currentTarget.href;
 
-		url = url.replace( FoxhoundSettings.URL.base, FoxhoundSettings.URL.path );
+		url = url.replace( ReactVerseSettings.URL.base, ReactVerseSettings.URL.path );
 		history.push( url );
 	} );
 
@@ -193,12 +193,12 @@ function handleLinkClick() {
 // If we have pre-loaded data, we know we're viewing the list of posts, and should pre-load it.
 function renderPreloadData() {
 	const actions = bindActionCreators( { setMenu, setPost, setPosts }, store.dispatch );
-	actions.setMenu( 'primary', FoxhoundMenu.data );
+	actions.setMenu( 'primary', ReactVerseMenu.data );
 
-	if ( FoxhoundData.data.length > 1 ) {
-		actions.setPosts( FoxhoundData.data, FoxhoundData.paging );
-	} else if ( FoxhoundData.data.length ) {
-		const post = FoxhoundData.data[ 0 ];
+	if ( ReactVerseData.data.length > 1 ) {
+		actions.setPosts( ReactVerseData.data, ReactVerseData.paging );
+	} else if ( ReactVerseData.data.length ) {
+		const post = ReactVerseData.data[ 0 ];
 		actions.setPost( post );
 	}
 }

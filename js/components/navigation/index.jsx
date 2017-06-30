@@ -100,7 +100,7 @@ const Navigation = React.createClass( {
 } );
 
 export default connect( ( state ) => {
-	const path = FoxhoundSettings.URL.path || '/';
+	const path = ReactVerseSettings.URL.path || '/';
 	const menu = getMenu( state, 'primary' );
 	return {
 		currentPage: state.routing.locationBeforeTransitions.pathname || path,

@@ -18,7 +18,7 @@ import Placeholder from '../placeholder';
 const Search = React.createClass( {
 	search( event ) {
 		event.preventDefault();
-		const url = `${ FoxhoundSettings.URL.path }search/${ this.getSearchValue() }`;
+		const url = `${ ReactVerseSettings.URL.path }search/${ this.getSearchValue() }`;
 		this.props.router.push( url );
 	},
 
@@ -33,7 +33,7 @@ const Search = React.createClass( {
 		const posts = this.props.posts;
 		const term = this.getSearchValue();
 		const meta = {
-			title: 'Search Results for "' + term + '" – ' + FoxhoundSettings.meta.title,
+			title: 'Search Results for "' + term + '" – ' + ReactVerseSettings.meta.title,
 		};
 		meta.title = he.decode( meta.title );
 

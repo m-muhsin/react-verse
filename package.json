@@ -1,12 +1,12 @@
 {
-  "name": "Foxhound",
+  "name": "ReactVerse",
   "version": "1.0.3",
   "description": "A new kind of WordPress theme",
   "author": "Kelly Dwan & Mel Choyce",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/ryelle/Foxhound"
+    "url": "https://github.com/m-muhsin/react-verse"
   },
   "license": "GPL-2.0+",
   "devDependencies": {

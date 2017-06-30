@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Foxhound
+ * @package ReactVerse
  */
 
 ?><!DOCTYPE html>
@@ -22,7 +22,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'foxhound' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'reactverse' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
@@ -31,7 +31,7 @@
 
 		<nav id="site-navigation" class="main-navigation" role="navigation" aria-live="assertive">
 			<div class="menu-toggle">
-				<button aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'foxhound' ); ?></button>
+				<button aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'reactverse' ); ?></button>
 			</div>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'fallback_cb' => '__return_false' ) ); ?>
 		</nav><!-- #site-navigation -->

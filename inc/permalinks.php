@@ -2,13 +2,13 @@
 /**
  * Update permalinks for correct JS-based routing
  *
- * @package Foxhound
+ * @package ReactVerse
  */
 
 /**
  * Class wrapper for permalink actions
  */
-class Foxhound_SetPermalinks {
+class ReactVerse_SetPermalinks {
 	/**
 	 * Set up actions
 	 */
@@ -36,7 +36,7 @@ class Foxhound_SetPermalinks {
 		}
 		?>
 		<div class="notice notice-warning">
-			<p><?php _e( '<b>Warning:</b> The theme you\'re using does not support customized permalinks. See the Help tab above for more information.', 'foxhound' ); ?></p>
+			<p><?php _e( '<b>Warning:</b> The theme you\'re using does not support customized permalinks. See the Help tab above for more information.', 'reactverse' ); ?></p>
 		</div>
 		<?php
 	}
@@ -47,7 +47,7 @@ class Foxhound_SetPermalinks {
 	public function admin_theme_warning() {
 		?>
 		<div class="notice notice-warning">
-			<p><?php _e( 'This theme requires special URLs to display your content, so your permalinks have been updated. To undo this, switch to another theme.', 'foxhound' ); ?></p>
+			<p><?php _e( 'This theme requires special URLs to display your content, so your permalinks have been updated. To undo this, switch to another theme.', 'reactverse' ); ?></p>
 		</div>
 		<?php
 	}
@@ -58,16 +58,16 @@ class Foxhound_SetPermalinks {
 	public function add_contextual_permalink_help() {
 		$screen = get_current_screen();
 
-		$content = '<p>' . __( 'Foxhound is a different kind of theme, which means it needs to handle URLs differently than other themes. There is no permalink customization in Foxhound, you need to use the "Month and name" setting for posts.', 'foxhound' ) . '</p>';
-		$content .= '<p>' . __( 'Other content on your site also needs different URLs, like the following:', 'foxhound' ) . '<ul>';
-		$content .= '<li>' . __( 'Pages are now prefixed with <code>page</code>; for example, <code>%1$s/page/about/</code>', 'foxhound' ) . '</li>';
-		$content .= '<li>' . __( 'Date archives are now prefixed with <code>date</code>; for example, <code>%1$s/date/2016/12/</code>', 'foxhound' ) . '</li>';
-		$content .= '<li>' . __( 'Category and tag archives are prefixed with <code>category</code> and <code>tag</code>, which is core behavior, but this cannot be changed.', 'foxhound' ) . '</li>';
+		$content = '<p>' . __( 'ReactVerse is a different kind of theme, which means it needs to handle URLs differently than other themes. There is no permalink customization in ReactVerse, you need to use the "Month and name" setting for posts.', 'reactverse' ) . '</p>';
+		$content .= '<p>' . __( 'Other content on your site also needs different URLs, like the following:', 'reactverse' ) . '<ul>';
+		$content .= '<li>' . __( 'Pages are now prefixed with <code>page</code>; for example, <code>%1$s/page/about/</code>', 'reactverse' ) . '</li>';
+		$content .= '<li>' . __( 'Date archives are now prefixed with <code>date</code>; for example, <code>%1$s/date/2016/12/</code>', 'reactverse' ) . '</li>';
+		$content .= '<li>' . __( 'Category and tag archives are prefixed with <code>category</code> and <code>tag</code>, which is core behavior, but this cannot be changed.', 'reactverse' ) . '</li>';
 		$content .= '</ul></p>';
 
 		$screen->add_help_tab( array(
-			'id'      => 'foxhound_permalinks_help',
-			'title'   => __( 'Foxhound Permalinks', 'foxhound' ),
+			'id'      => 'reactverse_permalinks_help',
+			'title'   => __( 'ReactVerse Permalinks', 'reactverse' ),
 			'content' => sprintf( $content, untrailingslashit( site_url() ) ),
 		) );
 	}
@@ -132,4 +132,4 @@ class Foxhound_SetPermalinks {
 		}
 	}
 }
-new Foxhound_SetPermalinks();
+new ReactVerse_SetPermalinks();

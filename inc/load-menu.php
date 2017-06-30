@@ -2,13 +2,13 @@
 /**
  * Pre-load the navigation menu as a JSON object
  *
- * @package Foxhound
+ * @package ReactVerse
  */
 
 /**
  * Class wrapper for menu loading
  */
-class Foxhound_LoadMenu {
+class ReactVerse_LoadMenu {
 	/**
 	 * Set up actions
 	 */
@@ -57,4 +57,4 @@ class Foxhound_LoadMenu {
 		return $menu;
 	}
 }
-new Foxhound_LoadMenu();
+new ReactVerse_LoadMenu();

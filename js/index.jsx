@@ -1,4 +1,4 @@
-/*global FoxhoundSettings, FoxhoundData, FoxhoundMenu, jQuery */
+/*global ReactVerseSettings, ReactVerseData, ReactVerseMenu, jQuery */
 // Load in the babel (es6) polyfill, and fetch polyfill
 import 'babel-polyfill';
 import 'whatwg-fetch';

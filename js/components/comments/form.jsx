@@ -1,4 +1,4 @@
-/* global FoxhoundSettings, wp */
+/* global ReactVerseSettings, wp */
 // External dependencies
 import React from 'react';
 import { connect } from 'react-redux';

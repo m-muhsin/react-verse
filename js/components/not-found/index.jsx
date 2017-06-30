@@ -1,4 +1,4 @@
-/*global FoxhoundSettings */
+/*global ReactVerseSettings */
 import React from 'react';
 import classNames from 'classnames';
 import DocumentMeta from 'react-document-meta';

@@ -111,7 +111,7 @@ global.ReactVerseSettings = {
 		path: '/'
 	},
 	meta: {
-		title: 'Foxhound',
+		title: 'ReactVerse',
 		description: 'Just another WordPress site'
 	}
 };

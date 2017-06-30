@@ -3,13 +3,13 @@
  * Pre-load the first page's query response as a JSON object
  * Skips the need for an API query on the initial load of a page
  *
- * @package Foxhound
+ * @package ReactVerse
  */
 
 /**
  * Class wrapper for data loading
  */
-class Foxhound_LoadData {
+class ReactVerse_LoadData {
 	/**
 	 * Set up actions
 	 */
@@ -87,4 +87,4 @@ class Foxhound_LoadData {
 		return intval( $GLOBALS['wp_query']->max_num_pages );
 	}
 }
-new Foxhound_LoadData();
+new ReactVerse_LoadData();

@@ -1,4 +1,4 @@
-/*global FoxhoundSettings */
+/*global ReactVerseSettings */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import isEqual from 'lodash/isEqual';

@@ -1,4 +1,4 @@
-/* global FoxhoundSettings */
+/* global ReactVerseSettings */
 import React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';

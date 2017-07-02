@@ -187,38 +187,27 @@ function reactverse_fonts_url() {
 
 	/*
 	 * Translators: If there are characters in your language that are not
-	 * supported by Alegreya, translate this to 'off'. Do not translate
+	 * supported by Open Sans, translate this to 'off'. Do not translate
 	 * into your own language.
 	 */
-	$alegreya = _x( 'on', 'Alegreya font: on or off', 'reactverse' );
+	$opensans = _x( 'on', 'Open Sans font: on or off', 'reactverse' );
 
 	/*
 	 * Translators: If there are characters in your language that are not
-	 * supported by Alegreya Sans, translate this to 'off'. Do not translate into
+	 * supported by Raleway, translate this to 'off'. Do not translate into
 	 * your own language.
 	 */
-	$alegreya_sans = _x( 'on', 'Alegreya Sans font: on or off', 'reactverse' );
+	$raleway = _x( 'on', 'Raleway font: on or off', 'reactverse' );
 
-	/*
-	 * Translators: If there are characters in your language that are not
-	 * supported by Alegreya SC, translate this to 'off'. Do not translate into
-	 * your own language.
-	 */
-	$alegreya_sc = _x( 'on', 'Alegreya SC (smallcaps) font: on or off', 'reactverse' );
-
-	if ( 'off' !== $alegreya || 'off' !== $alegreya_sans || 'off' !== $alegreya_sc ) {
+	if ( 'off' !== $opensans || 'off' !== $raleway ) {
 		$font_families = array();
 
-		if ( 'off' !== $alegreya ) {
-			$font_families[] = rawurlencode( 'Alegreya:400,400italic,700,700italic,900italic' );
+		if ( 'off' !== $opensans ) {
+			$font_families[] = rawurlencode( 'Open Sans:400,400italic,700,700italic,900italic' );
 		}
 
-		if ( 'off' !== $alegreya_sans ) {
-			$font_families[] = rawurlencode( 'Alegreya Sans:700' );
-		}
-
-		if ( 'off' !== $alegreya_sc ) {
-			$font_families[] = rawurlencode( 'Alegreya SC:700' );
+		if ( 'off' !== $raleway ) {
+			$font_families[] = rawurlencode( 'Raleway:700' );
 		}
 
 		$protocol = is_ssl() ? 'https' : 'http';

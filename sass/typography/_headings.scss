@@ -32,10 +32,21 @@ h3, h4, h5, h6 {
 	font-weight: $font__weight-bold;
 	@include font-size( $font__size-header );
 	line-height: 1.1;
-	color: $blue;
+	// color: $blue;
 
 	@include breakpoint( '<480px' ) {
 		@include font-size( $font__size-header - 4 );
+	}
+}
+
+.purple-gradient {
+	&, &:visited, &:hover, &:active, &:focus {
+		color: transparent;
+		background-clip: text;
+		-webkit-background-clip: text;
+		background-image: linear-gradient(to right, #0473d0, #f50b8b);
+		display: inline-block;
+		line-height: 1.5;
 	}
 }
 

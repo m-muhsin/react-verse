@@ -33,7 +33,7 @@ const Attachment = React.createClass( {
 			<article className={ classNames( [ 'entry' ] ) }>
 				<DocumentMeta { ...meta } />
 				<BodyClass classes={ [ 'attachment', `attachment-${ media.media_type }`, 'single', 'single-attachment' ] } />
-				<h1 className="entry-title" dangerouslySetInnerHTML={ this.getTitle( media ) } />
+				<h1 className="entry-title"><span className="purple-gradient" dangerouslySetInnerHTML={ this.getTitle( media ) } /></h1>
 
 				<div className="entry-meta"></div>
 				<div className="entry-content" dangerouslySetInnerHTML={ this.getMediaContent( media ) } />

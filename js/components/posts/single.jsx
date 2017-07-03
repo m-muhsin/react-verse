@@ -26,7 +26,7 @@ let Post = React.createClass( {
 		return (
 			<article id={ `post-${post.id}` } className={ classes }>
 				<h2 className="entry-title">
-					<Link to={ path } rel="bookmark" dangerouslySetInnerHTML={ this.getTitle( post ) } />
+					<Link className="purple-gradient" to={ path } rel="bookmark" dangerouslySetInnerHTML={ this.getTitle( post ) } />
 				</h2>
 
 				<div className="entry-content" dangerouslySetInnerHTML={ this.getExcerpt( post ) } />

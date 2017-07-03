@@ -42,7 +42,7 @@ const SinglePage = React.createClass( {
 			<article id={ `post-${ post.id }` } className={ classes }>
 				<DocumentMeta { ...meta } />
 				<BodyClass classes={ [ 'page', 'single', 'single-page' ] } />
-				<h1 className="entry-title" dangerouslySetInnerHTML={ this.getTitle( post ) } />
+				<h1 className="entry-title" ><span className="purple-gradient" dangerouslySetInnerHTML={ this.getTitle( post ) }/></h1>
 				{ featuredMedia ?
 					<Media media={ featuredMedia } parentClass='entry-image' /> :
 					null

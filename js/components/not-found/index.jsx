@@ -20,7 +20,7 @@ const NotFound = React.createClass( {
 			<article className={ classes }>
 				<DocumentMeta { ...meta } />
 				<BodyClass classes={ [ 'not-found' ] } />
-				<h2 className="entry-title">Nothing Found</h2>
+				<h2 className="entry-title"><span className="purple-gradient">Nothing Found</span></h2>
 
 				<div className="entry-content">
 					<p>It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.</p>

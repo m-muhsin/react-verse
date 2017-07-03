@@ -11,8 +11,10 @@ h3, h4, h5, h6 {
 	margin: 0;
 	font-weight: $font__weight-black;
 	@include font-size( 36 );
-	color: $blue;
-
+	color: transparent;
+	background-clip: text;
+	-webkit-background-clip: text;
+	background-image: linear-gradient(to right, #0473d0, #f50b8b);
 	a {
 		&:focus {
 			text-decoration: underline;

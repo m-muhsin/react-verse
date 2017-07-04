@@ -2,6 +2,7 @@
 ( function( $, api ) {
 	// Site title.
 	api( 'blogname', function( value ) {
+		alert('stitle');
 		value.bind( function( to ) {
 			$( '.site-title a' ).text( to );
 		} );
@@ -34,4 +35,19 @@
 			event.preventDefault();
 		}
 	};
+
+	api( 'gradient_one', function( value ) {
+		alert( 'sad' );
+		value.bind( function( newval ) {
+			$( '.site-title' ).css( 'color', newval );
+		} );
+	} );
+
+	api( 'gradient_one', function( value ) {
+		alert( 'sad' );
+		value.bind( function( newval ) {
+			$( '.site-title' ).css( 'color', newval );
+		} );
+	} );
+
 } )( jQuery, wp.customize );

@@ -37,14 +37,18 @@
 
 	api( 'gradient_one', function( value ) {
 		value.bind( function( newval ) {
-			$( '.site-title, .entry-title a' ).css( 'color', newval );
+			var gradientOne = 'linear-gradient(to right, ' + newval + ',' + ReactVerseSettings.gradientData.two + '  )';
+			$( '.site-title, .entry-title a' ).css( 'background-image', gradientOne );
 		} );
 	} );
 
-	api( 'gradient_two', function( value ) {
-		value.bind( function( newval ) {
-			$( '.site-title, .entry-title a' ).css( 'color', newval );
+	api( 'gradient_two', function( value2 ) {
+		value2.bind( function( newVal2 ) {
+			var gradientTwo = 'linear-gradient(to right, ' + ReactVerseSettings.gradientData.one + ', ' + newVal2 + ' )';
+			$( '.site-title, .entry-title a' ).css( 'background-image', gradientTwo );
 		} );
 	} );
+
+
 
 } )( jQuery, wp.customize );

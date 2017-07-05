@@ -167,6 +167,10 @@ function reactverse_scripts() {
 				'title' => get_bloginfo( 'name', 'display' ),
 				'description' => get_bloginfo( 'description', 'display' ),
 			),
+			'gradientData' => array(
+				'one' => get_theme_mod( 'gradient_one' ),
+				'two' => get_theme_mod( 'gradient_two' ),
+			),
 		) )
 	);
 	wp_add_inline_script( REACTVERSE_APP, $reactverse_settings, 'before' );
@@ -256,6 +260,9 @@ add_filter( 'rest_page_query', 'reactverse_add_path_to_page_query', 10, 2 );
 
 // Allow anon comments via API when using this theme.
 add_filter( 'rest_allow_anonymous_comments', '__return_true' );
+
+
+
 
 // Include extra functionality.
 require get_template_directory() . '/inc/load-menu.php';

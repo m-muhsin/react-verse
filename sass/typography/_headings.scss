@@ -14,7 +14,7 @@ h3, h4, h5, h6 {
 	color: transparent;
 	background-clip: text;
 	-webkit-background-clip: text;
-	background-image: linear-gradient(to right, #0473d0, #f50b8b);
+	// background-image: linear-gradient(to right, #0473d0, #f50b8b);
 	a {
 		&:focus {
 			text-decoration: underline;
@@ -44,7 +44,7 @@ h3, h4, h5, h6 {
 		color: transparent;
 		background-clip: text;
 		-webkit-background-clip: text;
-		background-image: linear-gradient(to right, #0473d0, #f50b8b);
+		// background-image: linear-gradient(to right, #0473d0, #f50b8b);
 		display: inline-block;
 		line-height: 1.5;
 	}

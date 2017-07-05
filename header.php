@@ -18,6 +18,11 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 <?php wp_head(); ?>
+<style>
+	.purple-gradient, .site-title {
+		background-image: linear-gradient(to right, <?php echo get_theme_mod( 'gradient_one' ) ?>, <?php echo get_theme_mod( 'gradient_two' )?>);
+	}
+</style>
 </head>
 
 <body <?php body_class(); ?>>

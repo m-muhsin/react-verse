@@ -28,8 +28,8 @@ function reactverse_gradient_title ( WP_Customize_Manager $wp_customize ) {
 		'priority'    => 30,
 		'description' => 'Pick two colors to generate gradient',
 	) );
-	$wp_customize->add_setting( 'gradient_one' );
-	$wp_customize->add_setting( 'gradient_two' );
+	$wp_customize->add_setting( 'gradient_one', array('default'=>'#0473d0') );
+	$wp_customize->add_setting( 'gradient_two', array('default'=>'#f50b8b') );
 
 	$wp_customize->add_control (
 		new WP_Customize_Color_Control (
@@ -53,8 +53,8 @@ function reactverse_gradient_title ( WP_Customize_Manager $wp_customize ) {
 			)
 		)
 	);
-	$wp_customize->get_setting( 'gradient_one'  )->transport = 'postMessage';
-    $wp_customize->get_setting( 'gradient_two'  )->transport = 'postMessage';
+	$wp_customize->get_setting( 'gradient_one'  )->transport = 'refresh';
+    $wp_customize->get_setting( 'gradient_two'  )->transport = 'refresh';
 }
 add_action( 'customize_register', 'reactverse_gradient_title' );
 

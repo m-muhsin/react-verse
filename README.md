@@ -3,6 +3,8 @@ React Verse
 
 A modern react-based theme for WordPress, using Webpack 2 for bundling.
 
+![screenshot](screenshot.png)
+
 Setup
 -----
 

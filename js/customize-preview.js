@@ -2,7 +2,6 @@
 ( function( $, api ) {
 	// Site title.
 	api( 'blogname', function( value ) {
-		alert('stitle');
 		value.bind( function( to ) {
 			$( '.site-title a' ).text( to );
 		} );
@@ -37,16 +36,14 @@
 	};
 
 	api( 'gradient_one', function( value ) {
-		alert( 'sad' );
 		value.bind( function( newval ) {
-			$( '.site-title' ).css( 'color', newval );
+			$( '.site-title, .entry-title a' ).css( 'color', newval );
 		} );
 	} );
 
-	api( 'gradient_one', function( value ) {
-		alert( 'sad' );
+	api( 'gradient_two', function( value ) {
 		value.bind( function( newval ) {
-			$( '.site-title' ).css( 'color', newval );
+			$( '.site-title, .entry-title a' ).css( 'color', newval );
 		} );
 	} );
 

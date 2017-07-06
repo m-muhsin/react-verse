@@ -41,9 +41,14 @@ h3, h4, h5, h6 {
 
 .page-title,
 .entry-title{
-	margin-bottom: 0;
+	margin-bottom: 20px;
 }
-
+.entry-meta {
+	margin-bottom: 20px;
+}
+.col-sm-9 .entry-title {
+    margin-bottom: 0;
+}
 .purple-gradient {
 	&, &:visited, &:hover, &:active, &:focus {
 		color: transparent;

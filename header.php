@@ -24,6 +24,15 @@
 		background-image: linear-gradient(to <?php echo get_theme_mod( 'direction' ) ?>, <?php echo get_theme_mod( 'gradient_one' ) ?>, <?php echo get_theme_mod( 'gradient_two' )?>);
 	}
 </style>
+<style>
+	@media screen\0 {
+		.purple-gradient, .purple-gradient:visited, .purple-gradient:hover,
+		.purple-gradient:active, .purple-gradient:focus, .site-title {
+			color: white;
+			padding: 0 20px;
+	}
+}
+</style>
 </head>
 
 <body <?php body_class(); ?>>

@@ -33,7 +33,9 @@ const PostList = React.createClass( {
 			<article className="entry">
 				<h2 className="entry-title"><span>Nothing Found</span></h2>
 
-				<div className="entry-content">
+				<div className="featured-image col-sm-4"></div>
+
+				<div className="entry-content col-sm-8">
 					<p>{ this.props.error }</p>
 				</div>
 

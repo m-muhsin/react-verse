@@ -15,15 +15,15 @@
 }
 
 .site-branding {
-	flex: 1 100%;
+	// flex: 1 100%;
 
 	@include breakpoint( '>660px' ) {
-		flex: 1 $size__site-sidebar;
-		-ms-flex: 1 $size__site-sidebar-fallback;
-		max-width: $size__site-sidebar;
+	// 	flex: 1 $size__site-sidebar;
+	// 	-ms-flex: 1 $size__site-sidebar-fallback;
+	// 	max-width: $size__site-sidebar;
 		margin-right: $size__site-gutter;
 		margin-left: -1px; // Safari hack
-		text-align: center;
+	// 	text-align: center;
 	}
 }
 

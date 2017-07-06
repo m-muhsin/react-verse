@@ -5,7 +5,7 @@
 	@include font-size( 16 );
 	line-height: 1.25;
 	letter-spacing: 1.6px;
-	color: $dark-blue;
+	color: $black;
 
 	ul {
 		display: none;
@@ -24,7 +24,7 @@
 			min-width: 200px;
 			text-align: left;
 			background-color: $color__background-body;
-			border-bottom: 2px solid rgba( $dark-blue, 0.15 );
+			border-bottom: 2px solid rgba( $black, 0.15 );
 
 			ul {
 				position: relative;
@@ -62,7 +62,7 @@
 	li {
 		float: left;
 		position: relative;
-		border-bottom: 2px solid rgba( $dark-blue, 0.15 );
+		border-bottom: 2px solid rgba( $black, 0.15 );
 	}
 
 	a {
@@ -80,7 +80,7 @@
 	.nav-menu > .current_page_item > a,
 	.nav-menu > .current-menu-item > a,
 	.nav-menu > .current-menu-ancestor > a {
-		border-bottom-color: $dark-blue;
+		border-bottom-color: $black;
 	}
 
 	.nav-menu > .menu-item-has-children:hover > a,
@@ -137,13 +137,13 @@
 	display: block;
 	margin: 10px 0;
 	width: 100%;
-	border-bottom: 2px solid rgba( $dark-blue, 0.15 );
+	border-bottom: 2px solid rgba( $black, 0.15 );
 
 	&::after {
 		content: '\2193';
 		float: right;
 		vertical-align: bottom;
-		color: $dark-blue;
+		color: $black;
 		line-height: 30px;
 
 		.main-navigation .menu-open & {
@@ -156,11 +156,11 @@
 		padding: 3px 2px;
 		background: transparent;
 		border: none;
-		border-bottom: 2px solid $dark-blue;
+		border-bottom: 2px solid $black;
 		border-radius: 0;
 		box-shadow: none;
 		text-align: left;
-		color: $dark-blue;
+		color: $black;
 	}
 
 	&:hover button,

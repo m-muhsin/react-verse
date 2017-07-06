@@ -21,7 +21,10 @@
 <style>
 	.purple-gradient, .purple-gradient:visited, .purple-gradient:hover,
 	.purple-gradient:active, .purple-gradient:focus, .site-title {
-		background-image: linear-gradient(to <?php echo get_theme_mod( 'direction' ) ?>, <?php echo get_theme_mod( 'gradient_one' ) ?>, <?php echo get_theme_mod( 'gradient_two' )?>);
+		background-image: linear-gradient(to <?php echo get_theme_mod( 'heading_direction', 'right' ) ?>, <?php echo get_theme_mod( 'heading_gradient_one', '#0473d0' ) ?>, <?php echo get_theme_mod( 'heading_gradient_two', '#f50b8b' )?>);
+	}
+	body {
+		background-image: linear-gradient(to <?php echo get_theme_mod( 'body_direction', 'bottom' ) ?>, <?php echo get_theme_mod( 'body_gradient_one', '#f49acc' ) ?>, <?php echo get_theme_mod( 'body_gradient_two', '#599bd1' )?>);
 	}
 </style>
 <style>

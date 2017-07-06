@@ -48,7 +48,7 @@ const SinglePost = React.createClass( {
 					<Media media={ featuredMedia } parentClass='entry-image' /> :
 					null
 				}
-				<div className="entry-meta"></div>
+				{/*<div className="entry-meta"></div>*/}
 				<div className="entry-content" dangerouslySetInnerHTML={ this.getContent( post ) } />
 
 				<PostMeta post={ post } humanDate={ this.getDate( post ) } />

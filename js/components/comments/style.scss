@@ -3,11 +3,12 @@
 --------------------------------------------------------------*/
 
 .comments-area {
+	margin: 0 auto;
 	margin-bottom: 75px;
 
-	@include breakpoint( '>660px' ) {
-		@include sidebar-margin;
-	}
+	// @include breakpoint( '>660px' ) {
+	// 	@include sidebar-margin;
+	// }
 }
 
 .comments-title,

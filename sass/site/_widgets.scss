@@ -13,9 +13,9 @@
 		border-top: none;
 	}
 
-	@include breakpoint( '>660px' ) {
-		@include sidebar-margin;
-	}
+	// @include breakpoint( '>660px' ) {
+	// 	@include sidebar-margin;
+	// }
 
 	@include breakpoint( '>480px' ) {
 		.widget {

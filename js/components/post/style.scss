@@ -53,7 +53,7 @@ footer.entry-meta {
 		content: '';
 	}
 
-	@include breakpoint( '>660px' ) {
-		@include sidebar-margin;
-	}
+	// @include breakpoint( '>660px' ) {
+	// 	@include sidebar-margin;
+	// }
 }

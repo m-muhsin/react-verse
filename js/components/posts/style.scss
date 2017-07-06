@@ -6,7 +6,9 @@
 	display: flex;
 	flex-flow: row wrap;
 	align-items: flex-start;
-	margin-bottom: 80px;
+	margin-bottom: 40px;
+	padding: 40px;
+	border-bottom: 1px solid #f7f7f7;
 }
 
 .entry-title {
@@ -21,19 +23,19 @@
 }
 
 .entry-meta {
-	flex: 1 100%;
-	width: 100%;
-	order: 3;
+	// flex: 1 100%;
+	// width: 100%;
+	// order: 3;
 
-	@include breakpoint( '>660px' ) {
-		flex: 1 $size__site-sidebar;
-		-ms-flex: 1 $size__site-sidebar-fallback;
-		order: 2;
-		width: $size__site-sidebar;
-		margin-top: 8px;
-		margin-right: $size__site-gutter;
-		margin-bottom: 20px;
-	}
+	// @include breakpoint( '>660px' ) {
+	// 	flex: 1 $size__site-sidebar;
+	// 	-ms-flex: 1 $size__site-sidebar-fallback;
+	// 	order: 2;
+	// 	// width: $size__site-sidebar;
+	// 	margin-top: 8px;
+	// 	margin-right: $size__site-gutter;
+	// 	margin-bottom: 20px;
+	// }
 }
 
 .entry-meta-label {

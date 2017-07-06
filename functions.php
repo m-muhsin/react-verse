@@ -117,7 +117,6 @@ function reactverse_scripts() {
 	wp_enqueue_style( 'reactverse-style', get_template_directory_uri() . '/build/style.css', array(), REACTVERSE_VERSION );
 	wp_enqueue_style( 'bootstrap-style', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css' );
 	wp_enqueue_script( REACTVERSE_APP, get_template_directory_uri() . '/build/app.js', array( 'jquery', 'wp-a11y' ), REACTVERSE_VERSION, true );
-
 	if ( is_child_theme() ) {
 		wp_enqueue_style( 'reactverse-child-style', get_stylesheet_uri() );
 	}

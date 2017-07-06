@@ -24,12 +24,13 @@ add_action( 'customize_register', 'reactverse_customize_register' );
  */
 function reactverse_gradient_title ( WP_Customize_Manager $wp_customize ) {
 	$wp_customize->add_section( 'gradient_section' , array(
-		'title'       => __( 'Color Gradient', ' ' ),
+		'title'       => __( 'Heading Color Gradient', ' ' ),
 		'priority'    => 30,
-		'description' => 'Pick two colors to generate gradient',
+		'description' => 'Pick two colors to generate gradient colour for headings',
 	) );
 	$wp_customize->add_setting( 'gradient_one', array('default'=>'#0473d0') );
 	$wp_customize->add_setting( 'gradient_two', array('default'=>'#f50b8b') );
+	$wp_customize->add_setting( 'direction', array('default'=>'right') );
 
 	$wp_customize->add_control (
 		new WP_Customize_Color_Control (
@@ -53,8 +54,20 @@ function reactverse_gradient_title ( WP_Customize_Manager $wp_customize ) {
 			)
 		)
 	);
+	$wp_customize->add_control( 'direction', array(
+    'label'   => 'Select Direction of Gradient:',
+    'section' => 'gradient_section',
+    'type'    => 'select',
+    'choices'    => array(
+        'Left' => 'Left',
+        'Right' => 'Right',
+        'Top' => 'Top',
+        'Bottom' => 'Bottom',
+        ),
+	) );
 	$wp_customize->get_setting( 'gradient_one'  )->transport = 'refresh';
     $wp_customize->get_setting( 'gradient_two'  )->transport = 'refresh';
+    $wp_customize->get_setting( 'direction'  )->transport = 'refresh';
 }
 add_action( 'customize_register', 'reactverse_gradient_title' );
 

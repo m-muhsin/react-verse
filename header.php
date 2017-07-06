@@ -19,8 +19,9 @@
 
 <?php wp_head(); ?>
 <style>
-	.purple-gradient, .site-title {
-		background-image: linear-gradient(to right, <?php echo get_theme_mod( 'gradient_one' ) ?>, <?php echo get_theme_mod( 'gradient_two' )?>);
+	.purple-gradient, .purple-gradient:visited, .purple-gradient:hover,
+	.purple-gradient:active, .purple-gradient:focus, .site-title {
+		background-image: linear-gradient(to <?php echo get_theme_mod( 'direction' ) ?>, <?php echo get_theme_mod( 'gradient_one' ) ?>, <?php echo get_theme_mod( 'gradient_two' )?>);
 	}
 </style>
 </head>

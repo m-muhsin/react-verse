@@ -49,6 +49,11 @@
 		} );
 	} );
 
+	api('direction', function( direction ) {
+		direction.bind(function ( dir ) {
+			var gradientThree = 'linear-gradient(to ' + dir + ', ' + ReactVerseSettings.gradientData.one + ', ' + ReactVerseSettings.gradientData.one + ' )';
+			$('.site-title, .entry-title a').css('background-image', gradientThree);
+		});
+	});
 
-
-} )( jQuery, wp.customize );
+})(jQuery, wp.customize);

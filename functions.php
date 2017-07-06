@@ -170,6 +170,7 @@ function reactverse_scripts() {
 			'gradientData' => array(
 				'one' => get_theme_mod( 'gradient_one' ),
 				'two' => get_theme_mod( 'gradient_two' ),
+				'dir' => get_theme_mod( 'direction' ),
 			),
 		) )
 	);

@@ -7,8 +7,14 @@
 	flex-flow: row wrap;
 	align-items: flex-start;
 	margin-bottom: 40px;
-	padding: 40px;
+
 	background-color: white;
+	@include breakpoint( '>660px' ) {
+		padding: 40px;
+	}
+	// div {
+	// 	padding: 5px;
+	// }
 }
 
 .entry-title {
@@ -50,5 +56,8 @@
 	@include breakpoint( '>660px' ) {
 		order: 3;
 		// max-width: $size__site-content;
+	}
+	@media screen and (max-width: 575px) {
+		display: none;
 	}
 }

@@ -3,6 +3,7 @@
 --------------------------------------------------------------*/
 .site-header {
 	// margin: 20px auto 0;
+	padding-bottom: 20px;
 	padding-bottom: 40px;
 	display: flex;
 	flex-flow: row wrap;
@@ -16,7 +17,7 @@
 
 .site-branding {
 	// flex: 1 100%;
-
+	padding-top: 20xp;
 	@include breakpoint( '>660px' ) {
 	// 	flex: 1 $size__site-sidebar;
 	// 	-ms-flex: 1 $size__site-sidebar-fallback;

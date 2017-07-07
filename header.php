@@ -28,6 +28,7 @@
 	}
 </style>
 <style>
+	/* IE workaround */
 	@media screen\0 {
 		.purple-gradient, .purple-gradient:visited, .purple-gradient:hover,
 		.purple-gradient:active, .purple-gradient:focus, .site-title {

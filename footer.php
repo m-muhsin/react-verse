@@ -15,9 +15,9 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'reactverse' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'reactverse' ), 'WordPress' ); ?></a>
+			<a href="<?php echo esc_url( __( 'https://www.wordpress.org/', 'reactverse' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'reactverse' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'reactverse' ), 'reactverse', '<a href="https://laccadive.io" rel="designer">Laccadive IO</a>' ); ?>
+			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'reactverse' ), 'React Verse', '<a href="https://laccadive.io" rel="designer">Laccadive IO</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

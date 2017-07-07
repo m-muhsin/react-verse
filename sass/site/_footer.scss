@@ -12,8 +12,8 @@
 			text-decoration: underline;
 		}
 	}
-
-	// @include breakpoint( '>660px' ) {
-	// 	@include sidebar-margin;
-	// }
+	@include breakpoint('>660px') {
+		font-size: 1.5rem;
+	}
 }
+

@@ -2,7 +2,7 @@
     Header
 --------------------------------------------------------------*/
 .site-header {
-	margin: 20px auto 0;
+	// margin: 20px auto 0;
 	padding-bottom: 40px;
 	display: flex;
 	flex-flow: row wrap;
@@ -33,7 +33,7 @@
 	@include breakpoint( '>660px' ) {
 		flex: 1 $size__site-content;
 		max-width: $size__site-content;
-		margin-top: 15px;
+		margin-top: 10px;
 	}
 }
 
@@ -45,3 +45,4 @@
 		outline: none;
 	}
 }
+

@@ -9,10 +9,10 @@
 	flex-flow: row wrap;
 	align-items: flex-start;
 
-	@include breakpoint( '>660px' ) {
-		margin-top: 75px;
-		margin-bottom: 40px;
-	}
+
+		margin-top: 30px;
+		margin-bottom: 20px;
+
 }
 
 .site-branding {

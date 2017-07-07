@@ -35,7 +35,7 @@ let Post = React.createClass( {
 					null
 				}
 				</div>
-				<div className="col-md-5">
+				<div className="col-md-8">
 					<h2 className="entry-title">
 						<Link className="purple-gradient" to={ path } rel="bookmark" dangerouslySetInnerHTML={ this.getTitle( post ) } />
 					</h2>

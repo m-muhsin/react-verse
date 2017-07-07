@@ -8,3 +8,13 @@ $size__site-sidebar-fallback: $calc-sidebar-width - 10%;
 $size__site-sidebar: calc( #{$calc-sidebar-width} - #{$size__site-gutter} );
 $size__site-content: ( 660 / 935 ) * 100%;
 $size__site-container: 1200px;
+
+// Send footer to bottom of page
+div#content {
+    flex-grow: 1;
+}
+body, div#page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}

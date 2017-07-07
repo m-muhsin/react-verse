@@ -29,13 +29,13 @@ let Post = React.createClass( {
 		const featuredMedia = this.getFeaturedMedia( post );
 		return (
 			<article id={ `post-${post.id}` } className={ classes }>
-				<div className="col-sm-3">
+				<div className="col-md-4">
 					{ featuredMedia ?
 					<Media media={ featuredMedia } parentClass='entry-image' /> :
 					null
 				}
 				</div>
-				<div className="col-sm-9">
+				<div className="col-md-5">
 					<h2 className="entry-title">
 						<Link className="purple-gradient" to={ path } rel="bookmark" dangerouslySetInnerHTML={ this.getTitle( post ) } />
 					</h2>

@@ -17,20 +17,8 @@ Since this is a more "experimental" theme, you'll need to have a few things set 
 About
 ------------------
 
-This theme is built based on [Foxhound](https://wordpress.org/themes/foxhound/), the first REST API powered theme on WordPress.org.
+This theme is built based on [Foxhound](https://wordpress.org/themes/foxhound/), the first REST API powered theme on WordPress.org. So, huge thanks to Kelly Dwan and Mel Choyce for building the Awesome Foxhound theme. Check out their work at https://themes.redradar.net.
 
-Thanks to…
-----------
-
-These are a few of the themes/plugins/packages that made this theme possible.
-
-- [Foxhound](https://github.com/ryelle/Foxhound)
-- [WP-API](http://v2.wp-api.org/)
-- [WP API Menus Plugin](https://wordpress.org/plugins/wp-api-menus/)
-- [node-wpapi](https://www.npmjs.com/package/wpapi)
-- [wordpress-rest-api-oauth-1](https://www.npmjs.com/package/wordpress-rest-api-oauth-1)
-- [react-document-meta](https://www.npmjs.com/package/react-document-meta)
-- [react-router-scroll](https://www.npmjs.com/package/react-router-scroll)
 
 Development
 -----------

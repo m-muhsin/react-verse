@@ -30,7 +30,7 @@ function reactverse_gradient_title ( WP_Customize_Manager $wp_customize ) {
 	) );
 	$wp_customize->add_setting( 'heading_gradient_one', array('default'=>'#0473d0') );
 	$wp_customize->add_setting( 'heading_gradient_two', array('default'=>'#f50b8b') );
-	$wp_customize->add_setting( 'heading_direction', array('default'=>'bottom') );
+	$wp_customize->add_setting( 'heading_direction', array('default'=>'right') );
 
 	$wp_customize->add_control (
 		new WP_Customize_Color_Control (

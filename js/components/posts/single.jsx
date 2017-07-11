@@ -32,7 +32,7 @@ let Post = React.createClass( {
 				<div className="col-md-4">
 					{ featuredMedia ?
 					<Media media={ featuredMedia } parentClass='entry-image' /> :
-					null
+					<img src={ ReactVerseSettings.URL.base + 'wp-content/themes/react-verse/img/train-placeholder.jpg' } alt="placeholder image" />
 				}
 				</div>
 				<div className="col-md-8">

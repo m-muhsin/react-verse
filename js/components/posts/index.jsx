@@ -9,6 +9,7 @@ import he from 'he';
 // Internal dependencies
 import QueryPosts from 'wordpress-query-posts';
 import { isRequestingPostsForQuery, getPostsForQuery, getTotalPagesForQuery } from 'wordpress-query-posts/lib/selectors';
+import * as customEndpoints from '../../utils/custom-api-endpoints';
 
 // Components
 import PostList from './list';
@@ -18,6 +19,19 @@ import Pagination from '../pagination/archive';
 import Placeholder from '../placeholder';
 
 const Index = React.createClass( {
+	getInitialState() {
+		return {
+			placeholderImage: {}
+		}
+	},
+
+	componentDidMount() {
+		customEndpoints.fetchCustomizerOptions('image_url')
+		.then(data => {
+			this.setState({placeholderImage: data});
+		});
+	},
+
 	render() {
 		if ( !! this.props.previewId ) {
 			return (
@@ -31,7 +45,8 @@ const Index = React.createClass( {
 			description: ReactVerseSettings.meta.description,
 			canonical: ReactVerseSettings.URL.base,
 		};
-
+		
+		
 		return (
 			<div className="site-content">
 				<DocumentMeta { ...meta } />
@@ -40,7 +55,7 @@ const Index = React.createClass( {
 				<QueryPosts query={ this.props.query } />
 				{ this.props.loading ?
 					<Placeholder type="posts" /> :
-					<PostList posts={ posts } />
+					<PostList posts={ posts } placeholderImage={this.state.placeholderImage}/>
 				}
 				<Pagination
 					path={ this.props.path }

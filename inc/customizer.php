@@ -121,6 +121,33 @@ function reactverse_gradient_body ( WP_Customize_Manager $wp_customize ) {
 }
 add_action( 'customize_register', 'reactverse_gradient_body' );
 
+/*
+* Adding placeholder media uploader
+*/
+function reactverse_post_image_placeholder ( WP_Customize_Manager $wp_customize ) {
+	$wp_customize->add_section( 'post_image_placeholder_section' , array(
+		'title'       => __( 'Post Image Placeholder', ' ' ),
+		'priority'    => 30,
+		'description' => 'Set global post placeholder image to use if no featured image provided.',
+	) );
+
+	$wp_customize->add_setting( 'image_url', array() );
+
+	$wp_customize->add_control (
+		new WP_Customize_Image_Control(
+           $wp_customize,
+           'image_url',
+           array(
+               'label'      => __( 'Upload a placeholder image', 'reactverse' ),
+               'section'    => 'post_image_placeholder_section',
+               'settings'	=> 'image_url'
+           )
+       )
+	);
+
+	$wp_customize->get_setting( 'image_url'  )->transport = 'refresh';
+}
+add_action( 'customize_register', 'reactverse_post_image_placeholder' );
 /**
  * Workaround issue in WP API Menus plugin to force nav menu item classes to be arrays instead of strings.
  *

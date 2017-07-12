@@ -9,6 +9,7 @@ const PostList = React.createClass( {
 		posts: React.PropTypes.array.isRequired,
 		shouldShowEmpty: React.PropTypes.bool,
 		error: React.PropTypes.string,
+		placeholderImage: React.PropTypes.object
 	},
 
 	getDefaultProps() {
@@ -19,8 +20,9 @@ const PostList = React.createClass( {
 	},
 
 	renderPosts() {
+		
 		return this.props.posts.map( ( post, i ) => {
-			return <Post key={ 'post-' + i } { ...post } />
+			return <Post key={ 'post-' + i } { ...post } placeholderImage={this.props.placeholderImage}/>
 		} );
 	},
 

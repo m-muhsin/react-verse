@@ -35,48 +35,4 @@
 // 		}
 // 	};
 
-// 	// Heading Gradient
-// 	api( 'heading_gradient_one', function( value ) {
-// 		value.bind( function( newval ) {
-// 			var gradientOne = 'linear-gradient(to right, ' + newval + ',' + ReactVerseSettings.headingGradientData.two + '  )';
-// 			$( '.site-title, .entry-title a' ).css( 'background-image', gradientOne );
-// 		} );
-// 	} );
-
-// 	api( 'heading_gradient_two', function( value2 ) {
-// 		value2.bind( function( newVal2 ) {
-// 			var gradientTwo = 'linear-gradient(to right, ' + ReactVerseSettings.headingGradientData.one + ', ' + newVal2 + ' )';
-// 			$( '.site-title, .entry-title a' ).css( 'background-image', gradientTwo );
-// 		} );
-// 	} );
-
-// 	api('heading_gradient_direction', function( direction ) {
-// 		direction.bind(function ( dir ) {
-// 			var gradientThree = 'linear-gradient(to ' + dir + ', ' + ReactVerseSettings.headingGradientData.one + ', ' + ReactVerseSettings.headingGradientData.two + ' )';
-// 			$('.site-title, .entry-title a').css('background-image', gradientThree);
-// 		});
-// 	});
-
-// 	// Body Gradient
-// 	api( 'body_gradient_one', function( value ) {
-// 		value.bind( function( newval ) {
-// 			var gradientOne = 'linear-gradient(to right, ' + newval + ',' + ReactVerseSettings.bodyGradientData.two + '  )';
-// 			$( '.site-title, .entry-title a' ).css( 'background-image', gradientOne );
-// 		} );
-// 	} );
-
-// 	api( 'body_gradient_two', function( value2 ) {
-// 		value2.bind( function( newVal2 ) {
-// 			var gradientTwo = 'linear-gradient(to right, ' + ReactVerseSettings.bodyGradientData.one + ', ' + newVal2 + ' )';
-// 			$( '.site-title, .entry-title a' ).css( 'background-image', gradientTwo );
-// 		} );
-// 	} );
-
-// 	api('body_gradient_direction', function( direction ) {
-// 		direction.bind(function ( dir ) {
-// 			var gradientThree = 'linear-gradient(to ' + dir + ', ' + ReactVerseSettings.bodyGradientData.one + ', ' + ReactVerseSettings.headingGradientData.two + ' )';
-// 			$('.site-title, .entry-title a').css('background-image', gradientThree);
-// 		});
-// 	});
-
 // })(jQuery, wp.customize);

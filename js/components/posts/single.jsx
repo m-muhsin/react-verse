@@ -15,6 +15,7 @@ let Post = React.createClass( {
 
 	render: function() {
 		let post = this.props;
+		let placeholderImage = this.props.placeholderImage
 
 		if ( 'attachment' === post.type ) {
 			return null;
@@ -26,13 +27,16 @@ let Post = React.createClass( {
 
 		let path = post.link.replace( ReactVerseSettings.URL.base, ReactVerseSettings.URL.path );
 
+
 		const featuredMedia = this.getFeaturedMedia( post );
 		return (
 			<article id={ `post-${post.id}` } className={ classes }>
 				<div className="col-md-4">
 					{ featuredMedia ?
 					<Media media={ featuredMedia } parentClass='entry-image' /> :
-					<img src={ ReactVerseSettings.URL.base + 'wp-content/themes/react-verse/img/train-placeholder.jpg' } alt="placeholder image" />
+					placeholderImage ? 
+					<img src={ placeholderImage.url } alt={ placeholderImage.alt } /> : 
+					null
 				}
 				</div>
 				<div className="col-md-8">

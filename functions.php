@@ -271,3 +271,4 @@ require get_template_directory() . '/inc/load-menu.php';
 require get_template_directory() . '/inc/load-data.php';
 require get_template_directory() . '/inc/permalinks.php';
 require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/custom_endpoints.php';

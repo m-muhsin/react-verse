@@ -145,7 +145,7 @@ function reactverse_post_image_placeholder ( WP_Customize_Manager $wp_customize 
        )
 	);
 
-	$wp_customize->get_setting( 'image_url'  )->transport = 'refresh';
+	$wp_customize->get_setting( 'image_url'  )->transport = 'postMessage';
 }
 add_action( 'customize_register', 'reactverse_post_image_placeholder' );
 /**

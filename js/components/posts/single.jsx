@@ -34,8 +34,8 @@ let Post = React.createClass( {
 				<div className="col-md-4">
 					{ featuredMedia ?
 					<Media media={ featuredMedia } parentClass='entry-image' /> :
-					placeholderImage ? 
-					<img src={ placeholderImage.url } alt={ placeholderImage.alt } /> : 
+					placeholderImage ?
+					<img className="placeholder" src={ placeholderImage.url } alt={ placeholderImage.alt } /> :
 					null
 				}
 				</div>

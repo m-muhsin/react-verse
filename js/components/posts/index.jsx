@@ -52,7 +52,7 @@ const Index = React.createClass( {
 				<DocumentMeta { ...meta } />
 				<BodyClass classes={ [ 'home', 'blog' ] } />
 				<StickyPostsList />
-				<QueryPosts query={ this.props.query } />
+				<QueryPosts query={ {page:1, sticky: true} } />
 				{ this.props.loading ?
 					<Placeholder type="posts" /> :
 					<PostList posts={ posts } placeholderImage={this.state.placeholderImage}/>

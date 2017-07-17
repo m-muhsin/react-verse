@@ -1,8 +1,8 @@
 {
   "name": "ReactVerse",
-  "version": "1.0.3",
-  "description": "A new kind of WordPress theme",
-  "author": "Kelly Dwan & Mel Choyce",
+  "version": "1.0",
+  "description": "A decoupled WordPress theme using the WordPress REST API",
+  "author": "Muhammad Muhsin",
   "private": true,
   "repository": {
     "type": "git",

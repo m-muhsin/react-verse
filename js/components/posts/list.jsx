@@ -3,6 +3,7 @@ import React from 'react';
 
 // Internal dependencies
 import Post from './single';
+import ContentMixin from '../../utils/content-mixin';
 
 const PostList = React.createClass( {
 	propTypes: {
@@ -12,6 +13,7 @@ const PostList = React.createClass( {
 		placeholderImage: React.PropTypes.object
 	},
 
+	
 	getDefaultProps() {
 		return {
 			shouldShowEmpty: true,
@@ -19,8 +21,12 @@ const PostList = React.createClass( {
 		};
 	},
 
-	renderPosts() {
+	componentDidMount() {
 		
+	},
+
+	renderPosts() {
+
 		return this.props.posts.map( ( post, i ) => {
 			return <Post key={ 'post-' + i } { ...post } placeholderImage={this.props.placeholderImage}/>
 		} );
@@ -51,12 +57,14 @@ const PostList = React.createClass( {
 			return null;
 		}
 
+
 		return (
 			<div className="site-main">
 				{ this.props.posts.length ?
 					this.renderPosts() :
 					this.renderEmpty()
 				}
+				
 			</div>
 		);
 	}

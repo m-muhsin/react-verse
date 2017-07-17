@@ -21,15 +21,101 @@ import Placeholder from '../placeholder';
 const Index = React.createClass( {
 	getInitialState() {
 		return {
-			placeholderImage: {}
+			placeholderImage: {},
+			posts: [],
+	      	page: 1,
+	      	fetchOnce: true,
+	      	loading: false,
+	      	infinityScroll: true,
+	      	initScroll: window.scrollY,
+	      	initFetch: true
 		}
 	},
 
 	componentDidMount() {
 		customEndpoints.fetchCustomizerOptions('image_url')
 		.then(data => {
-			this.setState({placeholderImage: data});
+			this.setState( { placeholderImage: data } );
 		});
+
+		if ( window.scrollY == 0) {
+			this.fetchPosts();
+			this.setState( { initFetch: false } );
+		}
+
+		if( this.state.infinityScroll ) {
+
+			this.activateInfinityScroll()
+		}
+		
+	},
+
+	bottomVisible() {
+      const scrollY = window.scrollY
+      const visible = document.documentElement.clientHeight
+      const pageHeight = document.documentElement.scrollHeight
+      const bottomOfPage = visible + scrollY >= pageHeight
+      return bottomOfPage || pageHeight < visible
+      
+    },
+
+	activateInfinityScroll() {
+		
+		window.addEventListener('scroll', () => {
+			
+
+			if( this.bottomVisible() && this.state.fetchOnce) {
+
+				this.fetchPosts();
+				
+			}
+
+		})
+	},
+
+	async fetchPosts() {
+
+		this.setState({fetchOnce: false})
+
+
+		await fetch(SiteSettings.endpoint + 'wp-json/wp/v2/posts?sticky=false&page=' + this.state.page +'&_embed=true')
+			.then(response => {
+				
+				if(response.status === 400) return []
+
+				return response.json()
+			})
+			.then(data => {
+
+				if( data.length == 0 ) {
+
+					this.setState( { fetchOnce: false } );
+					return;
+				}
+
+
+				let postArray = this.state.posts;
+				
+				data.forEach( function ( item ) {
+
+					postArray.push( item );
+
+				});
+
+				this.setState( { posts: postArray } );
+				this.setState( { page: this.state.page + 1 } );
+				this.setState( { fetchOnce: true } );
+			});
+			
+	},
+
+	renderPostList() {
+		return (
+			<div>
+				<PostList posts={ this.state.posts } placeholderImage={this.state.placeholderImage}/>
+				<div className='last'></div>
+			</div>
+			);
 	},
 
 	render() {
@@ -39,7 +125,7 @@ const Index = React.createClass( {
 			);
 		}
 
-		const posts = this.props.posts;
+		
 		const meta = {
 			title: he.decode( ReactVerseSettings.meta.title ),
 			description: ReactVerseSettings.meta.description,
@@ -53,15 +139,19 @@ const Index = React.createClass( {
 				<BodyClass classes={ [ 'home', 'blog' ] } />
 				<StickyPostsList />
 				<QueryPosts query={ this.props.query } />
-				{ this.props.loading ?
+				{ this.state.posts.length == 0 ?
 					<Placeholder type="posts" /> :
-					<PostList posts={ posts } placeholderImage={this.state.placeholderImage}/>
+					this.renderPostList()	
 				}
-				<Pagination
-					path={ this.props.path }
-					current={ this.props.page }
-					isFirstPage={ 1 === this.props.page }
-					isLastPage={ this.props.totalPages === this.props.page } />
+				{
+					!this.state.infinityScroll ? 
+						<Pagination
+						path={ this.props.path }
+						current={ this.props.page }
+						isFirstPage={ 1 === this.props.page }
+						isLastPage={ this.props.totalPages === this.props.page } /> : 
+						null
+				}
 			</div>
 		);
 	}

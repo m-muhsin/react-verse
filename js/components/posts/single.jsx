@@ -29,6 +29,7 @@ let Post = React.createClass( {
 
 
 		const featuredMedia = this.getFeaturedMedia( post );
+		
 		return (
 			<article id={ `post-${post.id}` } className={ classes }>
 				<div className="col-md-4">

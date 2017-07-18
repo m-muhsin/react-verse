@@ -23,10 +23,10 @@ const Index = React.createClass( {
 		return {
 			placeholderImage: {},
 			posts: [],
-	      	page: 1,
+	      	page: 2,
 	      	fetchOnce: true,
 	      	loading: false,
-	      	infinityScroll: true,
+	      	infinityScroll: false,
 	      	initScroll: window.scrollY,
 	      	initFetch: true
 		}
@@ -38,7 +38,7 @@ const Index = React.createClass( {
 			this.setState( { placeholderImage: data } );
 		});
 
-		if ( window.scrollY == 0) {
+		if ( window.scrollY == 0 || !infinityScroll ) {
 			this.fetchPosts();
 			this.setState( { initFetch: false } );
 		}
@@ -63,7 +63,6 @@ const Index = React.createClass( {
 		
 		window.addEventListener('scroll', () => {
 			
-
 			if( this.bottomVisible() && this.state.fetchOnce) {
 
 				this.fetchPosts();
@@ -109,13 +108,22 @@ const Index = React.createClass( {
 			
 	},
 
-	renderPostList() {
+	renderPostList( type ) {
+		if ( type == 'paged' ) {
+			return (
+			<div>
+				<PostList posts={ this.props.posts } placeholderImage={this.state.placeholderImage}/>
+			</div>
+			);	
+		}
+
 		return (
 			<div>
 				<PostList posts={ this.state.posts } placeholderImage={this.state.placeholderImage}/>
 				<div className='last'></div>
 			</div>
 			);
+		
 	},
 
 	render() {
@@ -141,7 +149,9 @@ const Index = React.createClass( {
 				<QueryPosts query={ this.props.query } />
 				{ this.state.posts.length == 0 ?
 					<Placeholder type="posts" /> :
-					this.renderPostList()	
+					!this.state.infinityScroll ? 
+						this.renderPostList('paged'):
+						this.renderPostList('infinity')
 				}
 				{
 					!this.state.infinityScroll ? 

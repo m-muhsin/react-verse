@@ -26,7 +26,7 @@ const Index = React.createClass( {
 	},
 
 	componentDidMount() {
-		customEndpoints.fetchCustomizerOptions('image_url')
+		customEndpoints.fetchCustomizerOptions('placeholder_image_url')
 		.then(data => {
 			this.setState({placeholderImage: data});
 		});

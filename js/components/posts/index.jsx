@@ -47,7 +47,7 @@ const Index = React.createClass( {
 
 			this.activateInfinityScroll()
 		}
-		
+
 	},
 
 	bottomVisible() {
@@ -56,18 +56,18 @@ const Index = React.createClass( {
       const pageHeight = document.documentElement.scrollHeight
       const bottomOfPage = visible + scrollY >= pageHeight
       return bottomOfPage || pageHeight < visible
-      
+
     },
 
 	activateInfinityScroll() {
-		
+
 		window.addEventListener('scroll', () => {
-			
+
 
 			if( this.bottomVisible() && this.state.fetchOnce) {
 
 				this.fetchPosts();
-				
+
 			}
 
 		})
@@ -80,7 +80,7 @@ const Index = React.createClass( {
 
 		await fetch(SiteSettings.endpoint + 'wp-json/wp/v2/posts?sticky=false&page=' + this.state.page +'&_embed=true')
 			.then(response => {
-				
+
 				if(response.status === 400) return []
 
 				return response.json()
@@ -95,7 +95,7 @@ const Index = React.createClass( {
 
 
 				let postArray = this.state.posts;
-				
+
 				data.forEach( function ( item ) {
 
 					postArray.push( item );
@@ -106,7 +106,7 @@ const Index = React.createClass( {
 				this.setState( { page: this.state.page + 1 } );
 				this.setState( { fetchOnce: true } );
 			});
-			
+
 	},
 
 	renderPostList() {
@@ -125,14 +125,14 @@ const Index = React.createClass( {
 			);
 		}
 
-		
+
 		const meta = {
 			title: he.decode( ReactVerseSettings.meta.title ),
 			description: ReactVerseSettings.meta.description,
 			canonical: ReactVerseSettings.URL.base,
 		};
-		
-		
+
+
 		return (
 			<div className="site-content">
 				<DocumentMeta { ...meta } />
@@ -141,15 +141,15 @@ const Index = React.createClass( {
 				<QueryPosts query={ this.props.query } />
 				{ this.state.posts.length == 0 ?
 					<Placeholder type="posts" /> :
-					this.renderPostList()	
+					this.renderPostList()
 				}
 				{
-					!this.state.infinityScroll ? 
+					!this.state.infinityScroll ?
 						<Pagination
 						path={ this.props.path }
 						current={ this.props.page }
 						isFirstPage={ 1 === this.props.page }
-						isLastPage={ this.props.totalPages === this.props.page } /> : 
+						isLastPage={ this.props.totalPages === this.props.page } /> :
 						null
 				}
 			</div>

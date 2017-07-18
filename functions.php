@@ -173,6 +173,12 @@ function reactverse_scripts() {
 				'two' => get_theme_mod( 'gradient_two' ),
 				'dir' => get_theme_mod( 'direction' ),
 			),
+			'infiniteScroll' => array(
+				'infinite_scroll' => get_theme_mod( 'infinite_scroll' ),
+			),
+			'placeholder_image_url' => array(
+				'placeholder_image_url' => get_theme_mod( 'placeholder_image_url' ),
+			),
 		) )
 	);
 	wp_add_inline_script( REACTVERSE_APP, $reactverse_settings, 'before' );

@@ -20,7 +20,7 @@ function reactverse_get_theme_mod( WP_REST_Request $request ) {
 }
 
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'myplugin/v1', '/theme_mod/(?P<value>[a-zA-Z0-9-_]+)', array(
+  register_rest_route( 'reactverse/v1', '/theme_mod/(?P<value>[a-zA-Z0-9-_]+)', array(
     'methods' => 'GET',
     'callback' => 'reactverse_get_theme_mod',
   ) );

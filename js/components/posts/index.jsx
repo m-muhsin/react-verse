@@ -23,7 +23,7 @@ const Index = React.createClass( {
 		return {
 			placeholderImage: {},
 			posts: [],
-	      	page: 2,
+	      	page: 1,
 	      	fetchOnce: true,
 	      	loading: false,
 	      	infinityScroll: false,
@@ -33,17 +33,19 @@ const Index = React.createClass( {
 	},
 
 	componentDidMount() {
-		customEndpoints.fetchCustomizerOptions('image_url')
+
+		customEndpoints.fetchCustomizerOptions('placeholder_image_url')
 		.then(data => {
 			this.setState( { placeholderImage: data } );
 		});
 
-		if ( window.scrollY == 0 || !infinityScroll ) {
+		if ( window.scrollY == 0 || !ReactVerseSettings.infiniteScroll.infinite_scroll ) {
 			this.fetchPosts();
 			this.setState( { initFetch: false } );
 		}
 
-		if( this.state.infinityScroll ) {
+
+		if( ReactVerseSettings.infiniteScroll.infinite_scroll ) {
 
 			this.activateInfinityScroll()
 		}
@@ -62,7 +64,7 @@ const Index = React.createClass( {
 	activateInfinityScroll() {
 		
 		window.addEventListener('scroll', () => {
-			
+			console.log(this.bottomVisible())
 			if( this.bottomVisible() && this.state.fetchOnce) {
 
 				this.fetchPosts();
@@ -149,12 +151,12 @@ const Index = React.createClass( {
 				<QueryPosts query={ this.props.query } />
 				{ this.state.posts.length == 0 ?
 					<Placeholder type="posts" /> :
-					!this.state.infinityScroll ? 
+					!ReactVerseSettings.infiniteScroll.infinite_scroll ? 
 						this.renderPostList('paged'):
 						this.renderPostList('infinity')
 				}
 				{
-					!this.state.infinityScroll ? 
+					!ReactVerseSettings.infiniteScroll.infinite_scroll ? 
 						<Pagination
 						path={ this.props.path }
 						current={ this.props.page }

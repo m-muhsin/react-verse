@@ -131,7 +131,7 @@ function reactverse_post_image_placeholder ( WP_Customize_Manager $wp_customize 
 		'description' => 'Set global post placeholder image to use if no featured image provided.',
 	) );
 
-	$wp_customize->add_setting( 'image_url', array() );
+	$wp_customize->add_setting( 'placeholder_image_url', array() );
 
 	$wp_customize->add_control (
 		new WP_Customize_Image_Control(
@@ -140,14 +140,42 @@ function reactverse_post_image_placeholder ( WP_Customize_Manager $wp_customize 
            array(
                'label'      => __( 'Upload a placeholder image', 'reactverse' ),
                'section'    => 'post_image_placeholder_section',
-               'settings'	=> 'image_url'
+               'settings'	=> 'placeholder_image_url'
            )
        )
 	);
 
-	$wp_customize->get_setting( 'image_url'  )->transport = 'postMessage';
+	$wp_customize->get_setting( 'placeholder_image_url'  )->transport = 'postMessage';
 }
 add_action( 'customize_register', 'reactverse_post_image_placeholder' );
+
+/* For infinite scrolling */
+function reactverse_posts_infinite_scroll ( WP_Customize_Manager $wp_customize ) {
+	$wp_customize->add_section( 'posts_infinite_scroll_section' , array(
+		'title'       => __( 'Infinite Scrolling'),
+		'priority'    => 30,
+		'description' => 'Check the box if you want infinite scrolling for your posts.',
+	) );
+	$wp_customize->add_setting( 'infinite_scroll', array(
+        'default'    => true,
+		'transport'  =>  'postMessage'
+    ) );
+	$wp_customize->add_control(
+    new WP_Customize_Control(
+        $wp_customize,
+        'infinite_scroll',
+			array(
+				'label'     => __('Infinite scrolling', 'reactverse'),
+				'section'   => 'posts_infinite_scroll_section',
+				'type'      => 'checkbox'
+			)
+		)
+	);
+	$wp_customize->get_setting( 'infinite_scroll'  )->transport = 'postMessage';
+}
+add_action( 'customize_register', 'reactverse_posts_infinite_scroll' );
+
+
 /**
  * Workaround issue in WP API Menus plugin to force nav menu item classes to be arrays instead of strings.
  *

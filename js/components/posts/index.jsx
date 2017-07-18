@@ -43,6 +43,9 @@ const Index = React.createClass( {
 			this.setState( { initFetch: false } );
 		}
 
+		// Setting the infinite_scroll control
+		this.setState({ infinityScroll: ReactVerseSettings.infiniteScroll.infinite_scroll });
+
 		if( this.state.infinityScroll ) {
 
 			this.activateInfinityScroll()

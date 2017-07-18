@@ -26,7 +26,6 @@ const Index = React.createClass( {
 	      	page: 1,
 	      	fetchOnce: true,
 	      	loading: false,
-	      	infinityScroll: false,
 	      	initScroll: window.scrollY,
 	      	initFetch: true
 		}

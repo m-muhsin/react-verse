@@ -131,21 +131,21 @@ function reactverse_post_image_placeholder ( WP_Customize_Manager $wp_customize 
 		'description' => 'Set global post placeholder image to use if no featured image provided.',
 	) );
 
-	$wp_customize->add_setting( 'image_url', array() );
+	$wp_customize->add_setting( 'placeholder_image_url', array() );
 
 	$wp_customize->add_control (
 		new WP_Customize_Image_Control(
            $wp_customize,
-           'image_url',
+           'placeholder_image_url',
            array(
                'label'      => __( 'Upload a placeholder image', 'reactverse' ),
                'section'    => 'post_image_placeholder_section',
-               'settings'	=> 'image_url'
+               'settings'	=> 'placeholder_image_url'
            )
        )
 	);
 
-	$wp_customize->get_setting( 'image_url'  )->transport = 'postMessage';
+	$wp_customize->get_setting( 'placeholder_image_url'  )->transport = 'postMessage';
 }
 add_action( 'customize_register', 'reactverse_post_image_placeholder' );
 /**

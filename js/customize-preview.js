@@ -7,7 +7,7 @@
 		});
 	});
 
-	api('image_url', function (value) {
+	api('placeholder_image_url', function (value) {
 		value.bind(function (to) {
 			$('img.placeholder').attr('src', to);
 		})

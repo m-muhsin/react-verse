@@ -5,7 +5,7 @@ export default {
 		}
 
 
-		return fetch(SiteSettings.endpoint + 'wp-json/myplugin/v1/reactverse/' + key)
+		return fetch(SiteSettings.endpoint + 'wp-json/reactverse/v1/theme_mod/' + key)
 			.then(r => {
 				if(r.status === 404) {
 					return {}

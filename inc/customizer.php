@@ -4,7 +4,6 @@
  *
  * @package ReactVerse
  */
-
 /**
  * Register customizer settings.
  *
@@ -12,11 +11,9 @@
  */
 function reactverse_customize_register( WP_Customize_Manager $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
-
 	add_filter( 'wp_get_nav_menu_items', '_reactverse_filter_wp_api_nav_menu_items_workaround', 20  );
 }
 add_action( 'customize_register', 'reactverse_customize_register' );
-
 /**
  * Register gradient customizer settings.
  *
@@ -31,7 +28,6 @@ function reactverse_gradient_title ( WP_Customize_Manager $wp_customize ) {
 	$wp_customize->add_setting( 'heading_gradient_one', array('default'=>'#0473d0') );
 	$wp_customize->add_setting( 'heading_gradient_two', array('default'=>'#f50b8b') );
 	$wp_customize->add_setting( 'heading_direction', array('default'=>'right') );
-
 	$wp_customize->add_control (
 		new WP_Customize_Color_Control (
 			$wp_customize,
@@ -70,8 +66,6 @@ function reactverse_gradient_title ( WP_Customize_Manager $wp_customize ) {
     $wp_customize->get_setting( 'heading_direction'  )->transport = 'refresh';
 }
 add_action( 'customize_register', 'reactverse_gradient_title' );
-
-
 function reactverse_gradient_body ( WP_Customize_Manager $wp_customize ) {
 	$wp_customize->add_section( 'body_gradient_section' , array(
 		'title'       => __( 'Body Color Gradient', ' ' ),
@@ -81,7 +75,6 @@ function reactverse_gradient_body ( WP_Customize_Manager $wp_customize ) {
 	$wp_customize->add_setting( 'body_gradient_one', array('default'=>'#f49acc') );
 	$wp_customize->add_setting( 'body_gradient_two', array('default'=>'#599bd1') );
 	$wp_customize->add_setting( 'body_direction', array('default'=>'bottom') );
-
 	$wp_customize->add_control (
 		new WP_Customize_Color_Control (
 			$wp_customize,
@@ -120,7 +113,6 @@ function reactverse_gradient_body ( WP_Customize_Manager $wp_customize ) {
     $wp_customize->get_setting( 'body_direction'  )->transport = 'refresh';
 }
 add_action( 'customize_register', 'reactverse_gradient_body' );
-
 /*
 * Adding placeholder media uploader
 */
@@ -132,7 +124,7 @@ function reactverse_post_image_placeholder ( WP_Customize_Manager $wp_customize 
 	) );
 
 	$wp_customize->add_setting( 'placeholder_image_url', array() );
-
+  
 	$wp_customize->add_control (
 		new WP_Customize_Image_Control(
            $wp_customize,
@@ -145,6 +137,7 @@ function reactverse_post_image_placeholder ( WP_Customize_Manager $wp_customize 
        )
 	);
 
+  
 	$wp_customize->get_setting( 'placeholder_image_url'  )->transport = 'postMessage';
 }
 add_action( 'customize_register', 'reactverse_post_image_placeholder' );
@@ -174,7 +167,6 @@ function reactverse_posts_infinite_scroll ( WP_Customize_Manager $wp_customize )
 	$wp_customize->get_setting( 'infinite_scroll'  )->transport = 'postMessage';
 }
 add_action( 'customize_register', 'reactverse_posts_infinite_scroll' );
-
 
 /**
  * Workaround issue in WP API Menus plugin to force nav menu item classes to be arrays instead of strings.

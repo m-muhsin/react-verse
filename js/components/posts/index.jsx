@@ -26,27 +26,25 @@ const Index = React.createClass( {
 	      	page: 1,
 	      	fetchOnce: true,
 	      	loading: false,
-	      	infinityScroll: true,
 	      	initScroll: window.scrollY,
 	      	initFetch: true
 		}
 	},
 
 	componentDidMount() {
-		customEndpoints.fetchCustomizerOptions('image_url')
+
+		customEndpoints.fetchCustomizerOptions('placeholder_image_url')
 		.then(data => {
 			this.setState( { placeholderImage: data } );
 		});
 
-		if ( window.scrollY == 0) {
+		if ( window.scrollY == 0 || !ReactVerseSettings.infiniteScroll.infinite_scroll ) {
 			this.fetchPosts();
 			this.setState( { initFetch: false } );
 		}
 
-		// Setting the infinite_scroll control
-		this.setState({ infinityScroll: ReactVerseSettings.infiniteScroll.infinite_scroll });
 
-		if( this.state.infinityScroll ) {
+		if( ReactVerseSettings.infiniteScroll.infinite_scroll ) {
 
 			this.activateInfinityScroll()
 		}
@@ -65,8 +63,7 @@ const Index = React.createClass( {
 	activateInfinityScroll() {
 
 		window.addEventListener('scroll', () => {
-
-
+			console.log(this.bottomVisible())
 			if( this.bottomVisible() && this.state.fetchOnce) {
 
 				this.fetchPosts();
@@ -112,13 +109,22 @@ const Index = React.createClass( {
 
 	},
 
-	renderPostList() {
+	renderPostList( type ) {
+		if ( type == 'paged' ) {
+			return (
+			<div>
+				<PostList posts={ this.props.posts } placeholderImage={this.state.placeholderImage}/>
+			</div>
+			);
+		}
+
 		return (
 			<div>
 				<PostList posts={ this.state.posts } placeholderImage={this.state.placeholderImage}/>
 				<div className='last'></div>
 			</div>
 			);
+
 	},
 
 	render() {
@@ -144,10 +150,12 @@ const Index = React.createClass( {
 				<QueryPosts query={ this.props.query } />
 				{ this.state.posts.length == 0 ?
 					<Placeholder type="posts" /> :
-					this.renderPostList()
+					!ReactVerseSettings.infiniteScroll.infinite_scroll ?
+						this.renderPostList('paged'):
+						this.renderPostList('infinity')
 				}
 				{
-					!this.state.infinityScroll ?
+					!ReactVerseSettings.infiniteScroll.infinite_scroll ?
 						<Pagination
 						path={ this.props.path }
 						current={ this.props.page }

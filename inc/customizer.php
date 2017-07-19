@@ -122,7 +122,9 @@ function reactverse_post_image_placeholder ( WP_Customize_Manager $wp_customize 
 		'priority'    => 30,
 		'description' => 'Set global post placeholder image to use if no featured image provided.',
 	) );
+
 	$wp_customize->add_setting( 'placeholder_image_url', array() );
+  
 	$wp_customize->add_control (
 		new WP_Customize_Image_Control(
            $wp_customize,
@@ -134,9 +136,12 @@ function reactverse_post_image_placeholder ( WP_Customize_Manager $wp_customize 
            )
        )
 	);
+
+  
 	$wp_customize->get_setting( 'placeholder_image_url'  )->transport = 'postMessage';
 }
 add_action( 'customize_register', 'reactverse_post_image_placeholder' );
+
 /* For infinite scrolling */
 function reactverse_posts_infinite_scroll ( WP_Customize_Manager $wp_customize ) {
 	$wp_customize->add_section( 'posts_infinite_scroll_section' , array(
@@ -162,6 +167,7 @@ function reactverse_posts_infinite_scroll ( WP_Customize_Manager $wp_customize )
 	$wp_customize->get_setting( 'infinite_scroll'  )->transport = 'postMessage';
 }
 add_action( 'customize_register', 'reactverse_posts_infinite_scroll' );
+
 /**
  * Workaround issue in WP API Menus plugin to force nav menu item classes to be arrays instead of strings.
  *

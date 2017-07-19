@@ -115,7 +115,9 @@ const Index = React.createClass( {
 			<div>
 				<PostList posts={ this.props.posts } placeholderImage={this.state.placeholderImage}/>
 			</div>
+
 			);
+      
 		}
 
 		return (
@@ -150,11 +152,13 @@ const Index = React.createClass( {
 				<QueryPosts query={ this.props.query } />
 				{ this.state.posts.length == 0 ?
 					<Placeholder type="posts" /> :
+
 					!ReactVerseSettings.infiniteScroll.infinite_scroll ?
 						this.renderPostList('paged'):
 						this.renderPostList('infinity')
 				}
 				{
+
 					!ReactVerseSettings.infiniteScroll.infinite_scroll ?
 						<Pagination
 						path={ this.props.path }

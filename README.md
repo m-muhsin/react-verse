@@ -44,6 +44,15 @@ There are a few other NPM scripts you can run:
 
 On the PHP side, we're also adding in some prefixes for permalinks (also called routes).
 
+Todos
+-----------
 
+* Choose font-type, font-color, font-size from the customizer. Get fonts from Google Fonts.
+
+* Featured Image/Video/Slides
+
+* Customizeable Header & Footer
+
+* Allow changing permalink structure for users
 
 Thanks for checking out React Verse!

@@ -55,7 +55,7 @@ const Index = React.createClass( {
       const scrollY = window.scrollY
       const visible = document.documentElement.clientHeight
       const pageHeight = document.documentElement.scrollHeight
-      const bottomOfPage = visible + scrollY >= pageHeight
+      const bottomOfPage = visible + scrollY + 10 >= pageHeight
       return bottomOfPage || pageHeight < visible
 
     },
@@ -117,13 +117,13 @@ const Index = React.createClass( {
 			</div>
 
 			);
-      
+
 		}
 
 		return (
 			<div>
 				<PostList posts={ this.state.posts } placeholderImage={this.state.placeholderImage}/>
-				<div className='last'></div>
+				<div className='last'>{ (Math.ceil(this.state.posts.length / 10) < this.props.totalPages) && <Placeholder type="posts" />}</div>
 			</div>
 			);
 

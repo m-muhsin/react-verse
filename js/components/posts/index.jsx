@@ -63,7 +63,6 @@ const Index = React.createClass( {
 	activateInfinityScroll() {
 
 		window.addEventListener('scroll', () => {
-			console.log(this.bottomVisible())
 			if (this.bottomVisible() && this.state.fetchOnce) {
 
 				this.fetchPosts();

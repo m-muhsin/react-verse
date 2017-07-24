@@ -3,7 +3,7 @@ import React from 'react';
 
 // Internal dependencies
 import Post from './single';
-import ContentMixin from '../../utils/content-mixin';
+import Placeholder from '../placeholder';
 
 const PostList = React.createClass( {
 	propTypes: {
@@ -13,7 +13,7 @@ const PostList = React.createClass( {
 		placeholderImage: React.PropTypes.object
 	},
 
-	
+
 	getDefaultProps() {
 		return {
 			shouldShowEmpty: true,
@@ -22,7 +22,7 @@ const PostList = React.createClass( {
 	},
 
 	componentDidMount() {
-		
+
 	},
 
 	renderPosts() {
@@ -38,17 +38,7 @@ const PostList = React.createClass( {
 		}
 
 		return (
-			<article className="entry">
-				<h2 className="entry-title"><span>Nothing Found</span></h2>
-
-				<div className="featured-image col-sm-4"></div>
-
-				<div className="entry-content col-sm-8">
-					<p>{ this.props.error }</p>
-				</div>
-
-				<div className="entry-meta"></div>
-			</article>
+			<Placeholder type="posts" />
 		)
 	},
 
@@ -64,7 +54,7 @@ const PostList = React.createClass( {
 					this.renderPosts() :
 					this.renderEmpty()
 				}
-				
+
 			</div>
 		);
 	}

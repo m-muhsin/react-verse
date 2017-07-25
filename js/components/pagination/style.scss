@@ -3,8 +3,6 @@
 .post-navigation,
 .comment-navigation {
 	margin-bottom: 50px;
-	border-bottom: 1px solid $color__border;
-	border-top: 1px solid $color__border;
 	font-style: italic;
 	color: $color__link-nav;
 
@@ -13,13 +11,6 @@
 		padding: 30px;
 	}
 
-	div + div {
-		border-left: 1px solid $color__border;
-	}
-
-	// @include breakpoint( '>660px' ) {
-	// 	@include sidebar-margin;
-	// }
 }
 
 .comment-navigation {
@@ -29,18 +20,15 @@
 .posts-navigation .nav-previous,
 .post-navigation .nav-previous,
 .comment-navigation .nav-previous {
-	float: left;
+	text-align: center;
 	padding-left: 0;
-	width: 50%;
 }
 
 .posts-navigation .nav-next,
 .post-navigation .nav-next,
 .comment-navigation .nav-next {
-	float: right;
-	text-align: right;
+	text-align: center;
 	padding-right: 0;
-	width: 50%;
 }
 
 .post-navigation,
@@ -60,10 +48,6 @@
 	.posts-navigation,
 	.post-navigation,
 	.comment-navigation {
-		div + div {
-			border-left: none;
-			border-top: 1px solid $color__border;
-		}
 	}
 	.posts-navigation .nav-previous,
 	.post-navigation .nav-previous,
@@ -76,4 +60,20 @@
 		padding-left: 0;
 		padding-right: 0;
 	}
+}
+
+.pagination-pages, .nav-previous, .nav-next {
+	display: inline-block;
+}
+
+.nav-links {
+    text-align: center;
+}
+
+.pagination-pages a {
+    padding: 0 1em;
+}
+
+a.active {
+	text-decoration: underline;
 }

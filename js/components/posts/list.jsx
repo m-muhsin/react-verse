@@ -37,9 +37,11 @@ const PostList = React.createClass( {
 			return null;
 		}
 
-		return (
-			<Placeholder type="posts" />
-		)
+		if(this.props.loading) {
+			return (
+				<Placeholder type="posts" />
+			)
+		}
 	},
 
 	render() {

@@ -112,11 +112,9 @@ const Index = React.createClass( {
 		if (type == 'paged') {
 			return (
 				<div>
-					<PostList posts={this.props.posts} placeholderImage={this.state.placeholderImage} />
+					<PostList loading={this.state.loading} posts={this.props.posts} placeholderImage={this.state.placeholderImage} />
 				</div>
-
 			);
-
 		}
 
 		return (
@@ -149,10 +147,10 @@ const Index = React.createClass( {
 				<BodyClass classes={['home', 'blog']} />
 				<StickyPostsList />
 				<QueryPosts query={this.props.query} />
-				{this.state.posts.length == 0 ?
+				{this.state.posts.length === 0 ?
 					<Placeholder type="posts" /> :
 
-					ReactVerseSettings.infiniteScroll.infinite_scroll == "0" ?
+					ReactVerseSettings.infiniteScroll.infinite_scroll === "0" ?
 						this.renderPostList('paged') :
 						this.renderPostList('infinity')
 				}
@@ -163,7 +161,8 @@ const Index = React.createClass( {
 							path={this.props.path}
 							current={this.props.page}
 							isFirstPage={1 === this.props.page}
-							isLastPage={this.props.totalPages === this.props.page} /> :
+							isLastPage={this.props.totalPages === this.props.page}
+							totalPages={this.props.totalPages} /> :
 						null
 				}
 			</div>

@@ -113,6 +113,12 @@ const Index = React.createClass( {
 			return (
 				<div>
 					<PostList loading={this.state.loading} posts={this.props.posts} placeholderImage={this.state.placeholderImage} />
+					<Pagination
+							path={this.props.path}
+							current={this.props.page}
+							isFirstPage={1 === this.props.page}
+							isLastPage={this.props.totalPages === this.props.page}
+							totalPages={this.props.totalPages} />
 				</div>
 			);
 		}
@@ -150,20 +156,9 @@ const Index = React.createClass( {
 				{this.state.posts.length === 0 ?
 					<Placeholder type="posts" /> :
 
-					ReactVerseSettings.infiniteScroll.infinite_scroll === "0" ?
+					ReactVerseSettings.infiniteScroll.infinite_scroll == "0" ?
 						this.renderPostList('paged') :
 						this.renderPostList('infinity')
-				}
-				{
-
-					ReactVerseSettings.infiniteScroll.infinite_scroll == "0" ?
-						<Pagination
-							path={this.props.path}
-							current={this.props.page}
-							isFirstPage={1 === this.props.page}
-							isLastPage={this.props.totalPages === this.props.page}
-							totalPages={this.props.totalPages} /> :
-						null
 				}
 			</div>
 		);

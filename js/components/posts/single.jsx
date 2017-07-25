@@ -29,7 +29,7 @@ let Post = React.createClass( {
 
 
 		const featuredMedia = this.getFeaturedMedia( post );
-		
+
 		return (
 			<article id={ `post-${post.id}` } className={ classes }>
 				<div className="col-md-4">
@@ -52,7 +52,7 @@ let Post = React.createClass( {
 						</div>
 					</div>
 					<div className="entry-content" dangerouslySetInnerHTML={ this.getExcerpt( post ) } />
-
+					<a href="{ path }" >Read More...</a>
 
 				</div>
 			</article>

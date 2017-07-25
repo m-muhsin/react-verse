@@ -1,7 +1,7 @@
 React Verse
 ========
 
-A modern react-based theme for WordPress, using Webpack 2 for bundling.
+A modern React theme for WordPress, using Webpack 2 for bundling. This theme is based on [Foxhound](https://github.com/ryelle/Foxhound).
 
 ![screenshot](screenshot.png)
 
@@ -17,7 +17,7 @@ Since this is a more "experimental" theme, you'll need to have a few things set 
 About
 ------------------
 
-This theme is built based on [Foxhound](https://wordpress.org/themes/foxhound/), the first REST API powered theme on WordPress.org. So, huge thanks to Kelly Dwan and Mel Choyce for building the Awesome Foxhound theme. Check out their work at https://themes.redradar.net.
+This theme is built based on [Foxhound](https://wordpress.org/themes/foxhound/), the first REST API powered theme on WordPress.org. So, huge thanks to Kelly Dwan and Mel Choyce for building the awesome Foxhound theme. Do check out their work at https://themes.redradar.net.
 
 
 Development

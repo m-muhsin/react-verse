@@ -113,6 +113,7 @@ function reactverse_gradient_body ( WP_Customize_Manager $wp_customize ) {
     $wp_customize->get_setting( 'body_direction'  )->transport = 'refresh';
 }
 add_action( 'customize_register', 'reactverse_gradient_body' );
+
 /*
 * Adding placeholder media uploader
 */
@@ -124,7 +125,7 @@ function reactverse_post_image_placeholder ( WP_Customize_Manager $wp_customize 
 	) );
 
 	$wp_customize->add_setting( 'placeholder_image_url', array() );
-  
+
 	$wp_customize->add_control (
 		new WP_Customize_Image_Control(
            $wp_customize,
@@ -137,7 +138,7 @@ function reactverse_post_image_placeholder ( WP_Customize_Manager $wp_customize 
        )
 	);
 
-  
+
 	$wp_customize->get_setting( 'placeholder_image_url'  )->transport = 'postMessage';
 }
 add_action( 'customize_register', 'reactverse_post_image_placeholder' );
@@ -145,22 +146,25 @@ add_action( 'customize_register', 'reactverse_post_image_placeholder' );
 /* For infinite scrolling */
 function reactverse_posts_infinite_scroll ( WP_Customize_Manager $wp_customize ) {
 	$wp_customize->add_section( 'posts_infinite_scroll_section' , array(
-		'title'       => __( 'Infinite Scrolling'),
+		'title'       => __( 'Infinite Scrolling / Pagination'),
 		'priority'    => 30,
-		'description' => 'Check the box if you want infinite scrolling for your posts.',
+		'description' => 'Posts display mode.',
 	) );
 	$wp_customize->add_setting( 'infinite_scroll', array(
-        'default'    => true,
-		'transport'  =>  'postMessage'
+        'default'    => true
     ) );
 	$wp_customize->add_control(
     new WP_Customize_Control(
         $wp_customize,
         'infinite_scroll',
 			array(
-				'label'     => __('Infinite scrolling', 'reactverse'),
+				'label'     => __('Select how to display your posts', 'reactverse'),
 				'section'   => 'posts_infinite_scroll_section',
-				'type'      => 'checkbox'
+				'type'      => 'radio',
+				'choices' => array(
+					true => __( 'Infinite scrolling' ),
+					false => __( 'Pagination' )
+				),
 			)
 		)
 	);

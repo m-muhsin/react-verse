@@ -112,7 +112,7 @@ const Index = React.createClass( {
 	renderPostList(type) {
 		if (type == 'paged') {
 
-			if ( this.props.posts.length == 0 ) {
+			if ( this.props.posts.length == 0 && !this.props.requesting) {
 				return <NotFound />
 			}
 

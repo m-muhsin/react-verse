@@ -30,7 +30,7 @@ const SinglePage = React.createClass( {
 
 		const template = post.template.split('.')[0];
 		if ( template == 'front-page' ) {
-			return <FrontPage />
+			return <FrontPage post={ post }/>
 		}
 
 

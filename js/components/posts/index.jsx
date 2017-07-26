@@ -17,6 +17,7 @@ import StickyPostsList from './sticky';
 import PostPreview from '../post/preview';
 import Pagination from '../pagination/archive';
 import Placeholder from '../placeholder';
+import NotFound from '../not-found';
 
 const Index = React.createClass( {
 	getInitialState() {
@@ -38,13 +39,13 @@ const Index = React.createClass( {
 				this.setState( { placeholderImage: data } );
 			});
 
-		if ( window.scrollY == 0 || !ReactVerseSettings.infiniteScroll.infinite_scroll ) {
+		if ( window.scrollY == 0 || ReactVerseSettings.infiniteScroll.infinite_scroll == '0') {
 			this.fetchPosts();
 			this.setState( { initFetch: false } );
 		}
 
 
-		if (ReactVerseSettings.infiniteScroll.infinite_scroll) {
+		if (ReactVerseSettings.infiniteScroll.infinite_scroll == '1') {
 
 			this.activateInfinityScroll()
 		}
@@ -72,12 +73,12 @@ const Index = React.createClass( {
 		})
 	},
 
-	async fetchPosts() {
+	fetchPosts() {
 
 		this.setState({ fetchOnce: false })
 
 
-		await fetch(SiteSettings.endpoint + 'wp-json/wp/v2/posts?sticky=false&page=' + this.state.page + '&_embed=true')
+		fetch(SiteSettings.endpoint + 'wp-json/wp/v2/posts?sticky=false&page=' + this.state.page + '&_embed=true')
 			.then(response => {
 
 				if (response.status === 400) return []
@@ -110,6 +111,11 @@ const Index = React.createClass( {
 
 	renderPostList(type) {
 		if (type == 'paged') {
+
+			if ( this.props.posts.length == 0 ) {
+				return <NotFound />
+			}
+
 			return (
 				<div>
 					<PostList loading={this.state.loading} posts={this.props.posts} placeholderImage={this.state.placeholderImage} />
@@ -133,6 +139,7 @@ const Index = React.createClass( {
 	},
 
 	render() {
+
 		if (!!this.props.previewId) {
 			return (
 				<PostPreview id={this.props.previewId} />

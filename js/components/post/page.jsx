@@ -23,7 +23,6 @@ const SinglePage = React.createClass( {
 
 	renderArticle() {
 		const post = this.props.post;
-		console.log('page.jsx', 'post', post);
 
 		if ( ! post ) {
 			return null;

@@ -16,15 +16,23 @@ import Media from './image';
 import Comments from '../comments';
 import Placeholder from '../placeholder';
 import PostPreview from './preview';
+import FrontPage from './front-page';
 
 const SinglePage = React.createClass( {
 	mixins: [ ContentMixin ],
 
 	renderArticle() {
 		const post = this.props.post;
+
 		if ( ! post ) {
 			return null;
 		}
+
+		const template = post.template.split('.')[0];
+		if ( template == 'front-page' ) {
+			return <FrontPage post={ post }/>
+		}
+
 
 		const meta = {
 			title: post.title.rendered + ' – ' + ReactVerseSettings.meta.title,

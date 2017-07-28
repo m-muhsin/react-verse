@@ -52,7 +52,7 @@ let Post = React.createClass( {
 						</div>
 					</div>
 					<div className="entry-content" dangerouslySetInnerHTML={ this.getExcerpt( post ) } />
-					<a href="{ path }" >Read More...</a>
+					<a href={ post.link } >Read More...</a>
 
 				</div>
 			</article>

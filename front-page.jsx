@@ -8,7 +8,7 @@ const FrontPage = React.createClass({
 		const post = this.props.post
 		return (
 			<div>
-				<h1>Frontpage content here</h1>
+				<h1 dangerouslySetInnerHTML={ this.getTitle( post ) } />
 				<div className="entry-content" dangerouslySetInnerHTML={ this.getContent( post ) } />
 			</div>
 		);

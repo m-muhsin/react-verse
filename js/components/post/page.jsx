@@ -16,7 +16,8 @@ import Media from './image';
 import Comments from '../comments';
 import Placeholder from '../placeholder';
 import PostPreview from './preview';
-import FrontPage from './front-page';
+import FrontPage from '../templates/front-page';
+import ContactPage from '../templates/contact-page';
 
 const SinglePage = React.createClass( {
 	mixins: [ ContentMixin ],
@@ -31,6 +32,9 @@ const SinglePage = React.createClass( {
 		const template = post.template.split('.')[0];
 		if ( template == 'front-page' ) {
 			return <FrontPage post={ post }/>
+		} else
+		if ( template == 'contact-page' ) {
+			return <ContactPage post={ post }/>
 		}
 
 

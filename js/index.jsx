@@ -15,6 +15,7 @@ import { escapeRegExp } from 'lodash';
 
 // Load the CSS
 require( '../sass/style.scss' );
+require( '../inc/bootstrap.scss' );
 
 // Internal
 import Navigation from './components/navigation';

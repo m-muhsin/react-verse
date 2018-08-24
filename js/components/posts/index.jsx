@@ -34,10 +34,10 @@ const Index = React.createClass( {
 
 	componentDidMount() {
 
-		customEndpoints.fetchCustomizerOptions('placeholder_image_url')
-			.then(data => {
-				this.setState( { placeholderImage: data } );
-			});
+		// customEndpoints.fetchCustomizerOptions('placeholder_image_url')
+		// 	.then(data => {
+		// 		this.setState( { placeholderImage: data } );
+		// 	});
 
 		if ( window.scrollY == 0 || ReactVerseSettings.infiniteScroll.infinite_scroll == '0') {
 			this.fetchPosts();
